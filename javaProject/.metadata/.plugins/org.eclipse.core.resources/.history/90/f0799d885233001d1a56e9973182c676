@@ -1,0 +1,14 @@
+package chapter02;
+
+public class Calculator {
+	/*
+	 * 1. 덧셈 함수
+	 * 2. 뺄셈 함수
+	 * 3. 곱셈 함수
+	 * 4. 나눗셈 함수
+	 */
+	int sum(int num1,int num2) {
+		int result = num1 + num2;
+		return result;
+	}
+}

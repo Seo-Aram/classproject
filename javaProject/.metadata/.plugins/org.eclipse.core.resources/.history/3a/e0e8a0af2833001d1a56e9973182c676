@@ -1,0 +1,9 @@
+package first;
+
+// 키워드: 자바 내부에서 약속된 단어, 명령어
+// class: 클래스를 정의해줌
+public class ConsolePrintTest {
+	public static void main(String[] args) {
+		System.out.print("JAVA는 \"객체지향 언어\"입니다.");
+	}
+}

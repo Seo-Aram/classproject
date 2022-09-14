@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\LG\Documents\himidea_fullstack\dev\GitHub\classproject\javaProject\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2701284951.index
+653369663.index
