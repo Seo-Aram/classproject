@@ -44,7 +44,7 @@ public class Member {
 	}
 	
 	public static int getAge(int year) {
-		return LocalDate.now().getYear() - year + 1;
+		return LocalDate.now().getYear() - year;
 	}
 	
 }
