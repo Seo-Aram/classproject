@@ -1,4 +1,4 @@
-package quiz02;
+package chapter04;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -46,7 +46,7 @@ public class Member {
 	}
 	
 	public static int getAge(int year) {
-		return nowYear - year;
+		return nowYear - year + 1;
 	}
 	
 }
