@@ -17,7 +17,7 @@ public class ProjectMain {
 		System.out.println("이메일: " + data.geteMail());
 		System.out.println("주소: " + data.getAddress());
 		System.out.println("생일: " + data.getBirth());
-		System.out.println("그룹: " + data.getGroup());
+		System.out.println("그룹: " + data.getGroup() == null ? "" : data.getGroup() );
 		System.out.println();
 		
 		data.printData();
