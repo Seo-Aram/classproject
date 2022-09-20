@@ -20,6 +20,8 @@ public class ProjectMain {
 		System.out.println("그룹: " + data.getGroup());
 		System.out.println();
 		
+		data.printData();
+		
 		data.setName("A");
 		data.setPhoneNumber("010-0000-0000");
 		data.seteMail("bMail");
