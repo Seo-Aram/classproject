@@ -68,6 +68,6 @@ public class Contact {
 		System.out.println("e-mail: " + eMail);
 		System.out.println("생일: " + birth);
 		System.out.println("주소: " + address);
-		System.out.println("그룹: " + group == null ? "" : group);
+		System.out.println("그룹: " + group);
 	}
 }

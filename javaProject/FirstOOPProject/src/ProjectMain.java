@@ -7,6 +7,7 @@
  인스턴스의 출력메소드를 다시 실행합니다
  */
 import data.Contact;
+import data.SmartPhone;
 
 public class ProjectMain {
 	public static void main(String[] args) {
@@ -30,5 +31,8 @@ public class ProjectMain {
 		data.setGroup("A");
 		
 		data.printData();
+		
+		System.out.println();
+
 	}
 }
