@@ -6,6 +6,7 @@ public class MainClass {
 		int[] korScore = new int[10];
 		int[] mathScore = new int[10];
 		int[] engScore = new int[10];
+		int[][] score = new int[10][3];
 		for(int i = 0; i < 10; ++i) {
 			korScore[i] = (int)(Math.random() * 100);
 			mathScore[i] = (int)(Math.random() * 100);
@@ -19,6 +20,26 @@ public class MainClass {
 			System.out.println("총점: " + sum);
 			System.out.println("평균: " + (double)Math.round(((double)sum / 3) * 100) / 100);
 		}
+		System.out.println();
+
+		for(int i = 0; i < 10; ++i) {
+			for(int j = 0; j < 3; ++j) {
+				score[i][j] = (int)(Math.random() * 100);
+			}
+		}
+		for(int i = 0; i < 10; ++i) {
+			int sum = 0;
+			System.out.println("==========Data" + (i + 1) + "==========");
+			for(int j = 0; j < 3; ++j) {
+				sum += score[i][j];
+				System.out.print("과목 " + (j + 1) + ": " + score[i][j] + "\t");
+			}
+			System.out.println();
+			
+			System.out.println("총점: " + sum);
+			System.out.println("평균: " + (double)Math.round(((double)sum / 3) * 100) / 100);
+		}
+		System.out.println();
 
 		System.out.println();
 		System.out.println("============Student Class============");
