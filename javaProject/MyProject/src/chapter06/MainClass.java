@@ -27,19 +27,22 @@ public class MainClass {
 				score[i][j] = (int)(Math.random() * 100);
 			}
 		}
+		
+		System.out.println("----------------------------------------");
+		System.out.println("국어\t수학\t영어\t총점\t평균");
+		System.out.println("----------------------------------------");
 		for(int i = 0; i < 10; ++i) {
 			int sum = 0;
-			System.out.println("==========Data" + (i + 1) + "==========");
 			for(int j = 0; j < 3; ++j) {
 				sum += score[i][j];
-				System.out.print("과목 " + (j + 1) + ": " + score[i][j] + "\t");
+				System.out.print(score[i][j] + "\t");
 			}
-			System.out.println();
 			
-			System.out.println("총점: " + sum);
-			System.out.println("평균: " + (double)Math.round(((double)sum / 3) * 100) / 100);
+			System.out.print(sum + "\t" + (double)Math.round(((double)sum / 3) * 100) / 100);
+			System.out.println();
 		}
-		System.out.println();
+		System.out.println("----------------------------------------");
+		
 
 		System.out.println();
 		System.out.println("============Student Class============");
