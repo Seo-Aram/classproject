@@ -40,8 +40,8 @@ public class SmartPhone {
 		}
 	}
 	
-	public void insertContactData(String name, String phoneNumber
-			, String eMail, String address, int birth, String group) {
+	public void insertContactData(String name, String phoneNumber, 
+			String eMail, String address, int birth, String group) {
 		for(int i = 0; i < MAX_SIZE; ++i) {
 			if(list[i] == null) {
 				list[i] = new Contact(name, phoneNumber, eMail, address, birth, group);
@@ -74,14 +74,11 @@ public class SmartPhone {
 	}
 	
 	public void deleteContactDataForName(String name) {
-		for(int i = 0; i < MAX_SIZE; ++i) {
-			if(list[i] != null) {
-				if(list[i].getName().equals(name)) {
-					list[i] = null;
-					System.out.println("데이터 삭제 완료.");
-					return;
-				}
-			}
+		int index = findContactIndexForName(name);
+		if(index != -1) {
+			list[index] = null;
+			System.out.println("데이터 삭제 완료.");
+			return;
 		}
 		
 		System.out.println("올바른 데이터를 찾지 못했습니다.");
