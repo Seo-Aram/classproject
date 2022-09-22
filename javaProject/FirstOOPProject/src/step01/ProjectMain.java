@@ -1,3 +1,4 @@
+package step01;
 /*
  * main()메소드를 정의합니다.
  연락처 데이터를 저장하는 인스턴스를 생성합니다.
@@ -6,7 +7,6 @@
  인스턴스의 각 변수에 값을 바꾸는 메소드를 이용해서 데이터를 수정합니다.
  인스턴스의 출력메소드를 다시 실행합니다
  */
-import data.Contact;
 import step02.SmartPhone;
 
 public class ProjectMain {

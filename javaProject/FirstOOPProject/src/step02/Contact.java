@@ -1,6 +1,6 @@
 package step02;
 
-public class Contact {
+class Contact {
 
 	private String name;
 	private String phoneNumber;
