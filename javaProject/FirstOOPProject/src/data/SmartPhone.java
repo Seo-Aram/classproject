@@ -17,15 +17,17 @@ public class SmartPhone {
 	
 	public void updateContactDataForIndex(int index, String name, String phoneNumber
 			, String eMail, String address, int birth, String group) {
-		if(list[index] == null) {
+		if(index < 0 || MAX_SIZE <= index || list[index] == null) {
 			System.out.println("데이터가 존재하지 않습니다.");
 		} else {
-			list[index].setName(name);
+			/*list[index].setName(name);
 			list[index].setPhoneNumber(phoneNumber);
 			list[index].seteMail(eMail);
 			list[index].setAddress(address);
 			list[index].setBirth(birth);
-			list[index].setGroup(group);
+			list[index].setGroup(group);*/
+			
+			list[index] = new Contact(name, phoneNumber, eMail, address, birth, group);
 		}
 	}
 	
