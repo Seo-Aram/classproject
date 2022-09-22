@@ -4,8 +4,17 @@ public class SmartPhone {
 	private Contact[] list;
 	private final int MAX_SIZE = 10;
 	
-	public SmartPhone() {
+	private static SmartPhone instance = null;
+	
+	private SmartPhone() {
 		list = new Contact[MAX_SIZE];
+	}
+	
+	public static SmartPhone getInstance() { // 싱글톤 객체
+		if(instance == null) {
+			instance = new SmartPhone();
+		}
+		return instance;
 	}
 
 	public Contact getContactDataForIndex(int index) {

@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Project2Main {
 	public static void main(String[] args) {
-		SmartPhone phoneData = new SmartPhone();
+		SmartPhone phoneData = SmartPhone.getInstance();
 		Scanner in = new Scanner(System.in);
 		int input;
 		String name, phoneNumber, email, address, group;
