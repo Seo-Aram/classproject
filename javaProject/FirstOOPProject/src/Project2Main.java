@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-import data.Contact;
-import data.SmartPhone;
+import step02.Contact;
+import step02.SmartPhone;
 
 public class Project2Main {
 	public static void main(String[] args) {

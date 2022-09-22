@@ -1,4 +1,4 @@
-package data;
+package step02;
 
 public class SmartPhone {
 	private Contact[] list;
