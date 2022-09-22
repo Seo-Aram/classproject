@@ -13,10 +13,7 @@ public class ProjectMain {
 		String name;
 		
 		while(true) {
-			printMenu();
-			
-			input = in.nextInt();
-			in.nextLine();
+			input = printMenu();
 			
 			switch(input) {
 				case 1: // 입력
@@ -88,7 +85,7 @@ public class ProjectMain {
 		}
 	}
 	
-	static void printMenu() {
+	static int printMenu() {
 		System.out.println("======= 연락처 =======");
 		System.out.println("1. 입력");
 		System.out.println("2. 수정");
@@ -99,6 +96,18 @@ public class ProjectMain {
 		System.out.println("0. 종료");
 		System.out.println("=======      =======");
 		System.out.print("원하시는 항목을 입력하세요 >> ");	
+		
+		String input = in.nextLine();
+		int result;
+		try {
+			result = Integer.parseInt(input);
+		} catch (Exception e) {
+			System.out.println("데이터 입력이 잘못되었습니다.");
+			System.out.println(e.getMessage());
+			result = -1;
+		}
+		
+		return result;
 	}
 	
 	static void insertUpdateContact(MENU menu, int index) {
