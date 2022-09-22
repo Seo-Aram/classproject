@@ -24,33 +24,6 @@ public class SmartPhone {
 		return list[index];
 	}
 	
-	public void updateContactDataForIndex(int index, String phoneNumber
-			, String eMail, String address, String birth, String group) {
-		if(index < 0 || MAX_SIZE <= index || list[index] == null) {
-			System.out.println("데이터가 존재하지 않습니다.");
-		} else {
-			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
-				list[index].setPhoneNumber(phoneNumber);
-			}
-
-			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
-				list[index].seteMail(eMail);
-			}
-
-			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
-				list[index].setAddress(address);
-			}
-
-			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
-				list[index].setBirth(birth);
-			}
-
-			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
-				list[index].setGroup(group);
-			}
-		}
-	}
-	
 	public void updateContactDataForIndex(int index, String name, String phoneNumber
 			, String eMail, String address, String birth, String group) {
 		if(index < 0 || MAX_SIZE <= index || list[index] == null) {
