@@ -55,7 +55,9 @@ public class Project2Main {
 						continue;
 					}
 					System.out.println("수정할 데이터가 없을 경우 공백으로 남기시면 수정되지 않습니다.");
-					
+
+					System.out.print("이름>>");
+					name = in.nextLine();
 					System.out.print("전화번호>>");
 					phoneNumber = in.nextLine();
 					System.out.print("e-Mail>>");
@@ -67,7 +69,7 @@ public class Project2Main {
 					System.out.print("그룹>>");
 					group = in.nextLine();
 					
-					phoneData.updateContactDataForIndex(index, phoneNumber, email, address, birth, group);
+					phoneData.updateContactDataForIndex(index, name, phoneNumber, email, address, birth, group);
 					
 					break;
 				}
