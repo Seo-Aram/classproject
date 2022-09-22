@@ -24,24 +24,35 @@ public class SmartPhone {
 		return list[index];
 	}
 	
-	public void updateContactDataForIndex(int index, String name, String phoneNumber
-			, String eMail, String address, int birth, String group) {
+	public void updateContactDataForIndex(int index, String phoneNumber
+			, String eMail, String address, String birth, String group) {
 		if(index < 0 || MAX_SIZE <= index || list[index] == null) {
 			System.out.println("데이터가 존재하지 않습니다.");
 		} else {
-			/*list[index].setName(name);
-			list[index].setPhoneNumber(phoneNumber);
-			list[index].seteMail(eMail);
-			list[index].setAddress(address);
-			list[index].setBirth(birth);
-			list[index].setGroup(group);*/
-			
-			list[index] = new Contact(name, phoneNumber, eMail, address, birth, group);
+			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
+				list[index].setPhoneNumber(phoneNumber);
+			}
+
+			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
+				list[index].seteMail(eMail);
+			}
+
+			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
+				list[index].setAddress(address);
+			}
+
+			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
+				list[index].setBirth(birth);
+			}
+
+			if(phoneNumber != null && phoneNumber.trim().length() > 0) {
+				list[index].setGroup(group);
+			}
 		}
 	}
 	
 	public void insertContactData(String name, String phoneNumber, 
-			String eMail, String address, int birth, String group) {
+			String eMail, String address, String birth, String group) {
 		for(int i = 0; i < MAX_SIZE; ++i) {
 			if(list[i] == null) {
 				list[i] = new Contact(name, phoneNumber, eMail, address, birth, group);

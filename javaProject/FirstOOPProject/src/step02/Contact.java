@@ -6,10 +6,10 @@ class Contact {
 	private String phoneNumber;
 	private String eMail;
 	private String address;
-	private int birth;
+	private String birth;
 	private String group;
 	
-	public Contact(String name, String phoneNumber, String eMail, String address, int birth, String group) {
+	public Contact(String name, String phoneNumber, String eMail, String address, String birth, String group) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.eMail = eMail;
@@ -42,10 +42,10 @@ class Contact {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(int birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public String getGroup() {
