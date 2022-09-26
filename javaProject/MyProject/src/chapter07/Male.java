@@ -2,8 +2,8 @@ package chapter07;
 
 class Male extends Person {
 
-	public Male(String name, int birth) {
-		super(name, birth);
+	public Male(String name, String personNum) {
+		super(name, personNum);
 	}
 
 	@Override
