@@ -56,7 +56,7 @@ class Main {
 						System.out.print("b: ");
 						dNum2 = Double.parseDouble(in.nextLine());
 						
-						System.out.println(dNum1 + " * " + dNum2 + " = " + calculator.divide(dNum1, dNum2));
+						System.out.println(dNum1 + " / " + dNum2 + " = " + calculator.divide(dNum1, dNum2));
 						break;
 					}
 					case 0:
