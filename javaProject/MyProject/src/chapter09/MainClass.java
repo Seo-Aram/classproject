@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 class MainClass {
 
@@ -19,8 +20,15 @@ class MainClass {
 		System.out.println("1부터 100000000까지의 합은 " + sum + "이고, 걸린 시간은 " + ((double)endTime - startTime)/1000000000 + "초 입니다.");
 		
 		Scanner scan = new Scanner(System.in);
+		Pattern pattern = Pattern.compile("^[가-힣]*$");
+		String name;
 		
 		try {
+			System.out.print("이름 입력>>");
+			name = scan.nextLine();
+			System.out.println("형식이 바르게 입력 되었습니까? " + pattern.matcher(name).find());
+			System.out.println("이름에 공백이 입력 되었습니까? " + (name.indexOf(' ') != -1 ? true : false));
+			
 			System.out.print("태어난 날을 입력해주세요(yyyyMMdd): ");
 			Date birth = new SimpleDateFormat("yyyyMMdd").parse(scan.nextLine());
 			Date curr = new Date();
