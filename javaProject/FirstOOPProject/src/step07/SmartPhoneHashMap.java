@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class SmartPhoneHashMap implements SmartPhone {
+public class SmartPhoneHashMap implements ISmartPhone {
 	private static SmartPhoneHashMap instance;
 	private Map<String, Contact> dataSet;
 	

@@ -3,7 +3,7 @@ package step07;
 import java.util.ArrayList;
 import java.util.List;
 
-class SmartPhoneArrayList implements SmartPhone {
+class SmartPhoneArrayList implements ISmartPhone {
 	private static SmartPhoneArrayList instance;
 	private List<Contact> dataSet;
 	

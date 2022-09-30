@@ -3,7 +3,7 @@ package step07;
 public class ProjectMain {
 	// 공백 입력은 추가 작업을 하지 않았음. 
 	public static void main(String[] args) {
-		SmartPhone phoneData = SmartPhoneHashMap.getInstance();
+		ISmartPhone phoneData = SmartPhoneHashMap.getInstance();
 		DataContext context = DataContext.getInstance();
 		
 		int input;

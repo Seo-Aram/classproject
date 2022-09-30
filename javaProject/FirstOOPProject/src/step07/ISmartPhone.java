@@ -1,6 +1,6 @@
 package step07;
 
-interface SmartPhone {
+interface ISmartPhone {
 	
 	/**
 	 * 이름으로 데이터 찾는 함수

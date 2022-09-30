@@ -3,7 +3,7 @@ package step07;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SmartPhoneHashSet implements SmartPhone {
+public class SmartPhoneHashSet implements ISmartPhone {
 	private static SmartPhoneHashSet instance;
 	private Set<Contact> dataSet;
 	
