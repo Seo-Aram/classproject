@@ -43,12 +43,12 @@ public class SmartPhone {
 			System.out.println("데이터 확인 필요.");
 			return;
 		}
-		if(findContactIndexForByPhoneNumber(data.getPhoneNumber()) != -1) {
-			System.out.println("중복 된 데이터가 존재합니다.");
-		}
 		if(index < 0 || MAX_SIZE <= index || list[index] == null) {
 			System.out.println("데이터가 존재하지 않습니다.");
-		} else {
+		} 
+		if(findContactIndexForByPhoneNumber(data.getPhoneNumber()) != -1) {
+			System.out.println("중복 된 데이터가 존재합니다.");
+		}else {
 			list[index] = data;
 		}
 	}
