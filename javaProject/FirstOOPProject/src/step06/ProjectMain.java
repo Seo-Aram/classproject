@@ -30,7 +30,7 @@ public class ProjectMain {
 					System.out.print("수정할 연락처 이름>>");
 					name = context.inputString();
 					
-					int index = phoneData.findContactIndexForByName(name);
+					int index = phoneData.findContactIndexByName(name);
 					if(index == -1) {
 						System.out.println("해당 데이터는 존재하지 않습니다.");
 						continue;

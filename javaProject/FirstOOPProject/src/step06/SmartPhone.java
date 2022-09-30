@@ -46,7 +46,7 @@ public class SmartPhone {
 		if(index < 0 || MAX_SIZE <= index || list[index] == null) {
 			System.out.println("데이터가 존재하지 않습니다.");
 		} 
-		if(findContactIndexForByPhoneNumber(data.getPhoneNumber()) != -1) {
+		if(findContactIndexByPhoneNumber(data.getPhoneNumber()) != -1) {
 			System.out.println("중복 된 데이터가 존재합니다.");
 		}else {
 			list[index] = data;
@@ -62,8 +62,8 @@ public class SmartPhone {
 			System.out.println("데이터 확인 필요.");
 			return;
 		}
-		if(findContactIndexForByName(data.getName()) != -1
-				|| findContactIndexForByPhoneNumber(data.getPhoneNumber()) != -1) {
+		if(findContactIndexByName(data.getName()) != -1
+				|| findContactIndexByPhoneNumber(data.getPhoneNumber()) != -1) {
 			System.out.println("중복 된 데이터가 존재합니다.");
 		}
 		
@@ -97,7 +97,7 @@ public class SmartPhone {
 	 * @param phoneNum
 	 * @return
 	 */
-	public Contact findContactDataForByPhoneNumber(String phoneNum) {
+	public Contact findContactDataByPhoneNumber(String phoneNum) {
 		for(Contact data : list) {
 			if(data != null && data.getPhoneNumber().equals(phoneNum)) {
 				return data;
@@ -111,7 +111,7 @@ public class SmartPhone {
 	 * @param name
 	 * @return int index
 	 */
-	public int findContactIndexForByName(String name) {
+	public int findContactIndexByName(String name) {
 		for(int i = 0; i < MAX_SIZE; ++i) {
 			if(list[i] != null && list[i].getName().equals(name)) {
 				return i;
@@ -126,7 +126,7 @@ public class SmartPhone {
 	 * @param phoneNum
 	 * @return int index
 	 */
-	public int findContactIndexForByPhoneNumber(String phoneNum) {
+	public int findContactIndexByPhoneNumber(String phoneNum) {
 		for(int i = 0; i < MAX_SIZE; ++i) {
 			if(list[i] != null && list[i].getPhoneNumber().equals(phoneNum)) {
 				return i;
@@ -140,7 +140,7 @@ public class SmartPhone {
 	 * @param name
 	 */
 	public void deleteContactDataForName(String name) {
-		int index = findContactIndexForByName(name);
+		int index = findContactIndexByName(name);
 		if(index != -1) {
 			list[index] = null;
 			System.out.println("데이터 삭제 완료.");
