@@ -30,7 +30,7 @@ public class ProjectMain {
 					System.out.println("연락처 수정");
 					
 					System.out.print("수정할 연락처 이름>>");
-					name = in.nextLine();
+					name = inputString();
 					
 					int index = phoneData.findContactIndexForByName(name);
 					if(index == -1) {
@@ -45,7 +45,7 @@ public class ProjectMain {
 				case 3: // 검색
 				{
 					System.out.print("검색하고자 하는 이름을 입력하세요>>");
-					name = in.nextLine();
+					name = inputString();
 					
 					Contact data = phoneData.findContactDataForByName(name);
 					if(data == null ) {
@@ -59,7 +59,7 @@ public class ProjectMain {
 				case 4: // 삭제
 				{
 					System.out.print("삭제할 연락처의 이름을 입력하세요>>");
-					name = in.nextLine();
+					name = inputString();
 					
 					phoneData.deleteContactDataForName(name);
 					
@@ -118,7 +118,7 @@ public class ProjectMain {
 		String name, phoneNumber, email, address, group, birth;
 
 		System.out.print("그룹 구분(회사:1 / 거래처:2)>>");
-		String input = in.nextLine();
+		String input = inputString();
 		int inputType = 0;
 		
 		try { // parseInt시 문제 발생하지 않게 처리
@@ -135,36 +135,36 @@ public class ProjectMain {
 		}
 		
 		System.out.print("이름>>");
-		name = in.nextLine();
+		name = inputString();
 		System.out.print("전화번호>>");
-		phoneNumber = in.nextLine();
+		phoneNumber = inputString();
 		System.out.print("e-Mail>>");
-		email = in.nextLine();
+		email = inputString();
 		System.out.print("주소>>");
-		address = in.nextLine();
+		address = inputString();
 		System.out.print("생일>>");
-		birth = in.nextLine();
+		birth = inputString();
 		System.out.print("그룹>>");
-		group = in.nextLine();
+		group = inputString();
 		
 		if(inputType == CLASS_TYPE.COMPANY.ordinal()) {
 			String company, department, position;
 			System.out.print("회사>>");
-			company = in.nextLine();
+			company = inputString();
 			System.out.print("부서>>");
-			department = in.nextLine();
+			department = inputString();
 			System.out.print("직책>>");
-			position = in.nextLine();
+			position = inputString();
 			
 			data = new CompanyContact(name, phoneNumber, email, address, birth, group, company, department, position);
 		} else if(inputType == CLASS_TYPE.CUSTOMER.ordinal()) {
 			String company, item, position;
 			System.out.print("거래처>>");
-			company = in.nextLine();
+			company = inputString();
 			System.out.print("거래 물품>>");
-			item = in.nextLine();
+			item = inputString();
 			System.out.print("직책>>");
-			position = in.nextLine();
+			position = inputString();
 			
 			data = new CustomerContact(name, phoneNumber, email, address, birth, group, company, item, position);
 		}
@@ -177,8 +177,28 @@ public class ProjectMain {
 		if(menu == MENU.UPDATE) {
 			phoneData.updateContactDataForIndex(index, data);
 		} else if(menu == MENU.INSERT) {
+			int nameIndex = phoneData.findContactIndexForByName(name);
+			if(nameIndex != -1) {
+				System.out.println("중복 된 이름이 존재합니다. 데이터를 확인해주세요.");
+				return;
+			}
 			phoneData.insertContactData(data);
 		}
 		
+	}
+	
+	static String inputString() {
+		String str = null;
+		while(true) {
+			str = in.nextLine();
+			if(str != null && str.trim().length() != 0) {
+				break;
+			}
+			
+			System.out.println("공백 문자열은 입력할 수 없습니다.");
+			System.out.print("다시 입력해주세요>>");
+		}
+		
+		return str;
 	}
 }
