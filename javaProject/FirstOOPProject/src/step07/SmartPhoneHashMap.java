@@ -46,10 +46,6 @@ public class SmartPhoneHashMap implements SmartPhone {
 			return;
 		}
 
-		Contact findData = findContactDataByNameAndPhoneNumber(data.getName(), data.getPhoneNumber());
-		if(findData != null) {
-			System.out.println("중복되는 데이터가 존재합니다.");
-		}
 		dataSet.put(data.getName(), data);
 	}
 
@@ -64,12 +60,7 @@ public class SmartPhoneHashMap implements SmartPhone {
 			return;
 		}
 		
-		Contact findData = findContactDataByNameAndPhoneNumber(data.getName(), data.getPhoneNumber());
-		if(findData != null) {
-			System.out.println("중복되는 데이터가 존재합니다.");
-		}
-		
-		
+		dataSet.put(data.getName(), data);
 	}
 
 	@Override
