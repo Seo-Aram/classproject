@@ -85,6 +85,10 @@ class SmartPhoneArrayList implements ISmartPhone {
 		}
 		
 		int index = findIndexByName(data.getName());
+		if(index == -1) {
+			System.out.println("수정할 데이터가 존재하지 않습니다.");
+			return;
+		}
 		
 		this.dataSet.set(index, data);
 	}
