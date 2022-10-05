@@ -26,7 +26,7 @@ public class SmartPhoneHashMap implements ISmartPhone {
 
 	@Override
 	public void deleteContactDataByName(String name) {
-		if(dataSet.isEmpty() || dataSet.size() == 0) {
+		if(dataSet.isEmpty()) {
 			System.out.println("전화번호부 데이터가 존재하지 않습니다.");
 			return;
 		}
@@ -55,7 +55,7 @@ public class SmartPhoneHashMap implements ISmartPhone {
 			System.out.println("데이터 확인 필요.");
 			return;
 		}
-		if(dataSet.isEmpty() || dataSet.size() == 0) {
+		if(dataSet.isEmpty()) {
 			System.out.println("전화번호부 데이터가 존재하지 않습니다.");
 			return;
 		}
@@ -76,7 +76,7 @@ public class SmartPhoneHashMap implements ISmartPhone {
 
 	@Override
 	public void printContactAllData() {
-		if(dataSet.isEmpty() || dataSet.size() == 0) {
+		if(dataSet.isEmpty()) {
 			System.out.println("전화번호부 데이터가 존재하지 않습니다.");
 			return;
 		}
