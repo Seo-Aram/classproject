@@ -12,7 +12,12 @@ class SmartPhoneArrayList extends AbsSmartPhoneBase {
 		super("dataArrayList.ser");
 		dataSet = (ArrayList<Contact>)readDataFile();
 		
-		if(dataSet == null) dataSet = new ArrayList<Contact>();
+		if(dataSet == null) {
+			dataSet = new ArrayList<Contact>();
+		}
+		else {
+			System.out.println("데이터 불러오기 성공.");
+		}
 	}
 	
 	public static SmartPhoneArrayList getInstance() {

@@ -12,7 +12,12 @@ public class SmartPhoneHashSet extends AbsSmartPhoneBase{
 		super("dataHashSet.ser");
 		dataSet = (HashSet<Contact>)readDataFile();
 		
-		if(dataSet == null) dataSet = new HashSet<Contact>();
+		if(dataSet == null) {
+			dataSet = new HashSet<Contact>();
+		}
+		else {
+			System.out.println("데이터 불러오기 성공.");
+		}
 	}
 	
 	public static SmartPhoneHashSet getInstance() {

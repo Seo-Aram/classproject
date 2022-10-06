@@ -13,7 +13,12 @@ public class SmartPhoneHashMap extends AbsSmartPhoneBase {
 		super("dataHashMap.ser");
 		dataSet = (HashMap<String, Contact>)readDataFile();
 		
-		if(dataSet == null) dataSet = new HashMap<String, Contact>();
+		if(dataSet == null) {
+			dataSet = new HashMap<String, Contact>();
+		}
+		else {
+			System.out.println("데이터 불러오기 성공.");
+		}
 	}
 	
 	public static SmartPhoneHashMap getInstance() {
