@@ -42,18 +42,14 @@ interface ISmartPhone {
 	
 	/**
 	 * 인스턴스 데이터 file로 직렬화
+	 * @param obj 저장할 데이터
 	 */
-	 abstract void saveDataFile(Object obj);
+	 abstract void saveDataFile();
 	
 	/**
 	 * file로 저장된 데이터 역 직렬화
 	 * @return
 	 */
 	abstract Object readDataFile();
-	
-	/**
-	 * 외부에서 파일을 저장할 수 있게 만들어주는 함수...
-	 */
-	abstract void save();
 	
 }

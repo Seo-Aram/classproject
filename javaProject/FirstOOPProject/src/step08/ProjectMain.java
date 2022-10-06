@@ -74,7 +74,7 @@ public class ProjectMain {
 				case 6: // 저장
 				{
 					System.out.println("연락처 내역 파일로 저장");
-					phoneData.save();
+					phoneData.saveDataFile();
 					break;
 				}
 				case 0:

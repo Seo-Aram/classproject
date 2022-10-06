@@ -17,17 +17,22 @@ abstract class AbsSmartPhoneBase implements ISmartPhone {
 		}
 	}
 
-	@Override
 	public void saveDataFile(Object obj) {
 		ObjectOutputStream outStream = null;
 		
+		if(obj == null) {
+			System.out.println("저장할 데이터가 존재하지 않습니다.");
+			return;
+		}
+		
 		try { 
 			outStream = new ObjectOutputStream(new FileOutputStream(FILE_NAME));
-			outStream.writeObject(obj);
+			if (outStream != null) outStream.writeObject(obj);
+			
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("데이터 저장에 실패했습니다.");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("데이터 저장 중 오류 발생.");
 		}
 		
 		System.out.println("파일 저장 완료");

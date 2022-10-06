@@ -101,7 +101,8 @@ public class SmartPhoneHashMap extends AbsSmartPhoneBase {
 		}
 	}
 
-	public void save() {
+	@Override
+	public void saveDataFile() {
 		saveDataFile(dataSet);
 	}
 	

@@ -117,7 +117,8 @@ public class SmartPhoneHashSet extends AbsSmartPhoneBase{
 		}
 	}
 
-	public void save() {
+	@Override
+	public void saveDataFile() {
 		saveDataFile(dataSet);
 	}
 
