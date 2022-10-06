@@ -11,7 +11,11 @@ public class SmartPhoneHashMap extends AbsSmartPhoneBase {
 	@SuppressWarnings("unchecked")
 	private SmartPhoneHashMap() {
 		super("dataHashMap.ser");
-		dataSet = (HashMap<String, Contact>)readDataFile();
+		try {
+			dataSet = (HashMap<String, Contact>)readDataFile();
+		} catch (Exception e) {
+			System.out.println("데이터 불러오기 실패.");
+		}
 		
 		if(dataSet == null) {
 			dataSet = new HashMap<String, Contact>();

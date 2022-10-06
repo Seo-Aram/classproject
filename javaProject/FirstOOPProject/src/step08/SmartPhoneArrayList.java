@@ -10,7 +10,11 @@ class SmartPhoneArrayList extends AbsSmartPhoneBase {
 	@SuppressWarnings("unchecked")
 	private SmartPhoneArrayList() {
 		super("dataArrayList.ser");
-		dataSet = (ArrayList<Contact>)readDataFile();
+		try {
+			dataSet = (ArrayList<Contact>)readDataFile();
+		} catch (Exception e) {
+			System.out.println("데이터 불러오기 실패.");
+		}
 		
 		if(dataSet == null) {
 			dataSet = new ArrayList<Contact>();

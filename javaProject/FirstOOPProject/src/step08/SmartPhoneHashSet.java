@@ -10,7 +10,11 @@ public class SmartPhoneHashSet extends AbsSmartPhoneBase{
 	@SuppressWarnings("unchecked")
 	private SmartPhoneHashSet() {
 		super("dataHashSet.ser");
-		dataSet = (HashSet<Contact>)readDataFile();
+		try {
+			dataSet = (HashSet<Contact>)readDataFile();
+		} catch (Exception e) {
+			System.out.println("데이터 불러오기 실패.");
+		}
 		
 		if(dataSet == null) {
 			dataSet = new HashSet<Contact>();

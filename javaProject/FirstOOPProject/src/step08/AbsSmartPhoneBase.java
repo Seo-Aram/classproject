@@ -7,10 +7,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 abstract class AbsSmartPhoneBase implements ISmartPhone {
-	private String fileName;
+	final private String FILE_NAME;
 	
 	public AbsSmartPhoneBase(String fileName) {
-		this.fileName = fileName;
+		if(fileName == null || fileName.trim().length() == 0) {
+			this.FILE_NAME = "defaultFile.ser";
+		} else {
+			this.FILE_NAME = fileName;
+		}
 	}
 
 	@Override
@@ -18,7 +22,7 @@ abstract class AbsSmartPhoneBase implements ISmartPhone {
 		ObjectOutputStream outStream = null;
 		
 		try { 
-			outStream = new ObjectOutputStream(new FileOutputStream(fileName));
+			outStream = new ObjectOutputStream(new FileOutputStream(FILE_NAME));
 			outStream.writeObject(obj);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -36,7 +40,7 @@ abstract class AbsSmartPhoneBase implements ISmartPhone {
 		Object result = null;
 		
 		try {
-			inStream = new ObjectInputStream(new FileInputStream(fileName));
+			inStream = new ObjectInputStream(new FileInputStream(FILE_NAME));
 			
 			if(inStream != null) result = inStream.readObject();
 			
