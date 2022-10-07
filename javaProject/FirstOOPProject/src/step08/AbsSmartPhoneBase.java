@@ -29,13 +29,13 @@ abstract class AbsSmartPhoneBase implements ISmartPhone {
 			outStream = new ObjectOutputStream(new FileOutputStream(FILE_NAME));
 			if (outStream != null) outStream.writeObject(obj);
 			
+			System.out.println("파일 저장 완료");
+			
 		} catch (IOException e) {
 			System.out.println("데이터 저장에 실패했습니다.");
 		} catch (Exception e) {
 			System.out.println("데이터 저장 중 오류 발생.");
 		}
-		
-		System.out.println("파일 저장 완료");
 
 	}
 
