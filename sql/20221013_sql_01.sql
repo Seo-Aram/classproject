@@ -46,7 +46,7 @@ select ename, sal, comm from emp where comm is not null order by comm desc;
 
 -- 12. 이름의 세번째 문자가 R인 사원의 이름을 표시하시오.
 
-select ename from emp where ename like '___R%';
+select ename from emp where ename like '__R%';
 
 -- 13. 이름에 A와 E를 모두 포함하고 있는 사원의 이름을 표시하시오.
 
