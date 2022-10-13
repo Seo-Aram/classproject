@@ -1,8 +1,8 @@
 -- 1 마당서점의고객이요구하는다음질문에대해SQL 문을작성하시오.
 -- (1) 도서번호가1인도서의이름
-select * from book where bookid = 1;
+select bookname from book where bookid = 1;
 -- (2) 가격이20,000원이상인도서의이름
-select * from book where price >= 20000;
+select bookname from book where price >= 20000;
 -- (3) 박지성의총구매액(박지성의고객번호는1번으로놓고작성)
 select sum(saleprice) as total_price from orders where custid = 1;
 select sum(saleprice) as total_price from orders where custid = (select custid from customer where name='박지성');
