@@ -12,7 +12,7 @@ select ename, sal from emp where sal >= 2000 order by sal desc;
 
 -- 4. 사원번호가 7788인 사원의 이름과 부서번호를 출력하시오.
 
-select ename, deptno from emp where empno = '7788';
+select ename, deptno from emp where empno = 7788;
 
 -- 5. 급여가 2000에서 3000 사이에 포함되지 않는 사원의 이름과 급여를 출력하시오.
 
@@ -29,7 +29,7 @@ select ename, deptno from emp where deptno in(20, 30) order by ename desc;
 
 -- 8. 사원의 급여가 2000에서 3000사이에 포함되고 부서번호가 20 또는 30인 사원의 이름, 급여와 부서번호를 출력, 이름순(오름차순)으로 출력하시오.
 
-select ename, sal, deptno from emp where sal between 2000 and 3000 and deptno in(20, 30) order by ename desc;
+select ename, sal, deptno from emp where sal between 2000 and 3000 and deptno in(20, 30) order by ename;
 
 -- 9. 1981년도에 입사한 사원의 이름과 입사일을 출력하시오. (like 연산자와 와일드카드 사용)
 
