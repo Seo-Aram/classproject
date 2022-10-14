@@ -42,7 +42,7 @@ from emp e1, emp e2
 where e1.hiredate <e2.hiredate and e1.ename = 'WARD';
 
 -- 42. SELF JOIN 을 사용하여 관리자보다 먼저 입사한 모든 사원의 이름 및 입사일을 관리자의 이름 및 입사일과 함께 출력하시오.
-select e1.ename, e1.hiredate
+select e1.ename, e1.hiredate, e2.ename as m_name, e2.hiredate as m_hiredate
 from emp e1, emp e2
 where e1.mgr = e2.empno and e1.hiredate < e2.hiredate;
 
