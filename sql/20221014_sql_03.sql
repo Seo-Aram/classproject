@@ -26,7 +26,6 @@ from emp e1, emp e2
 where e1.mgr = e2.empno;
 
 -- 39. OUTER JOIN, SELF JOIN을 사용하여 관리자가 없는 사원을 포함하여 사원번호를 기준으로 내림차순 정렬하여 출력하시오.
-select * from emp;
 select e1.ename, e1.empno, e2.ename as manager
 from emp e1, emp e2
 where e1.mgr = e2.empno(+)
@@ -35,7 +34,7 @@ order by e1.empno desc;
 -- 40. SELF JOIN을 사용하여 지정한 사원의 이름, 부서번호, 지정한 사원과 동일한 부서에서 근무하는 사원을 출력하시오. ( SCOTT )
 select e2.ename, e2.empno 
 from emp e1, emp e2
-where e1.deptno = e2.deptno and e1.ename = 'KING';
+where e1.deptno = e2.deptno and e1.ename = 'SCOTT';
 
 -- 41. SELF JOIN을 사용하여 WARD 사원보다 늦게 입사한 사원의 이름과 입사일을 출력하시오.
 select e2.ename, e2.hiredate
