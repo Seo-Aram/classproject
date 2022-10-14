@@ -54,6 +54,11 @@ select e.deptno, count(e.deptno) as mem_cnt, round(avg(e.sal), 2) as avg_sal,
 from emp e
 group by e.deptno;
 
+select e.deptno, count(e.deptno) as mem_cnt, d.dname, round(avg(e.sal), 2) as avg_sal 
+from emp e, dept d 
+where e.deptno = d.deptno
+group by e.deptno, d.dname;
+
 -- 31. 업무를 표시한 다음
 -- 해당 업무에 대해 부서 번호별 급여 및
 -- 부서 10, 20, 30의 급여 총액을 각각 출력하시오. 
@@ -64,5 +69,4 @@ select job, deptno as dno, sum(sal) as 총액,
         decode(deptno, 20, sum(sal)) as 부서20,
         decode(deptno, 30, sum(sal)) as 부서30
 from emp
-group by job, deptno
-;
+group by job, deptno;
