@@ -1,4 +1,5 @@
 -- 1 마당서점의고객이요구하는다음질문에대해SQL 문을작성하시오.
+-- (3) 박지성의총구매액(박지성의고객번호는1번으로놓고작성)
 select sum(saleprice) as total_price from orders where custid = 1;
 select sum(saleprice) as total_price from orders where custid = (select custid from customer where name='박지성');
 -- (4) 박지성이구매한도서의수(박지성의고객번호는1번으로놓고작성)
