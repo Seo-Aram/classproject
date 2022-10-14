@@ -59,7 +59,10 @@ group by e.deptno;
 -- 부서 10, 20, 30의 급여 총액을 각각 출력하시오. 
 -- 별칭은 각 job, dno, 부서 10, 부서 20, 부서 30, 총액으로 지정하시오. 
 -- ( hint. Decode, group by )
-select job, deptno, sal
+select job, deptno as dno, sum(sal) as 총액,
+        decode(deptno, 10, sum(sal)) as 부서10,
+        decode(deptno, 20, sum(sal)) as 부서20,
+        decode(deptno, 30, sum(sal)) as 부서30
 from emp
---group by deptno;
+group by job, deptno
 ;
