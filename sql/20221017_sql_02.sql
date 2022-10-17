@@ -141,15 +141,3 @@ from customer c,
 where c.custid = o.custid
 and o.cnt >= 2
 ;
-
-select count(o.custid) as cnt, o.custid
-from 
-(
-    select b.publisher, c.custid
-    from orders o, customer c, book b
-    where o.custid = c.custid
-    and o.bookid = b.bookid
-    group by c.custid, b.publisher
-) o
-group by custid
-;
