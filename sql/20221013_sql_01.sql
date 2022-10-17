@@ -1,61 +1,61 @@
--- 1. µ¡¼À¿¬»êÀÚ¸¦ ÀÌ¿ëÇÏ¿© ¸ðµç »ç¿ø¿¡ ´ëÇØ¼­ $300ÀÇ ±Þ¿© ÀÎ»óÀ» °è»êÇÑ ÈÄ »ç¿øÀÇ ÀÌ¸§, ±Þ¿©, ÀÎ»óµÈ ±Þ¿©¸¦ Ãâ·ÂÇÏ½Ã¿À.
+-- 1. ë§ì…ˆì—°ì‚°ìžë¥¼ ì´ìš©í•˜ì—¬ ëª¨ë“  ì‚¬ì›ì— ëŒ€í•´ì„œ $300ì˜ ê¸‰ì—¬ ì¸ìƒì„ ê³„ì‚°í•œ í›„ ì‚¬ì›ì˜ ì´ë¦„, ê¸‰ì—¬, ì¸ìƒëœ ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, sal, sal+300 as updateSal from emp;
 
--- 2. »ç¿øÀÇ ÀÌ¸§, ±Þ¿©, ¿¬°£ ÃÑ ¼öÀÔÀ» ÃÑ ¼öÀÔÀÌ ¸¹Àº °ÍºÎÅÍ ÀÛÀº ¼øÀ¸·Î Ãâ·ÂÇÏ½Ã¿À, ¿¬°£ ÃÑ¼öÀÔÀº ¿ù±Þ¿¡ 12¸¦ °öÇÑ ÈÄ $100ÀÇ »ó¿©±ÝÀ» ´õÇØ¼­ °è»êÇÏ½Ã¿À.
+-- 2. ì‚¬ì›ì˜ ì´ë¦„, ê¸‰ì—¬, ì—°ê°„ ì´ ìˆ˜ìž…ì„ ì´ ìˆ˜ìž…ì´ ë§Žì€ ê²ƒë¶€í„° ìž‘ì€ ìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì‹œì˜¤, ì—°ê°„ ì´ìˆ˜ìž…ì€ ì›”ê¸‰ì— 12ë¥¼ ê³±í•œ í›„ $100ì˜ ìƒì—¬ê¸ˆì„ ë”í•´ì„œ ê³„ì‚°í•˜ì‹œì˜¤.
 
 select ename, sal, (sal*12 + 100) as income from emp order by income desc;
 
--- 3. ±Þ¿©°¡ 2000À» ³Ñ´Â »ç¿øÀÇ ÀÌ¸§°ú ±Þ¿©¸¦ Ç¥Çö, ±Þ¿©°¡ ¸¹Àº °ÍºÎÅÍ ÀÛÀº ¼øÀ¸·Î Ãâ·ÂÇÏ½Ã¿À.
+-- 3. ê¸‰ì—¬ê°€ 2000ì„ ë„˜ëŠ” ì‚¬ì›ì˜ ì´ë¦„ê³¼ ê¸‰ì—¬ë¥¼ í‘œí˜„, ê¸‰ì—¬ê°€ ë§Žì€ ê²ƒë¶€í„° ìž‘ì€ ìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, sal from emp where sal >= 2000 order by sal desc;
 
--- 4. »ç¿ø¹øÈ£°¡ 7788ÀÎ »ç¿øÀÇ ÀÌ¸§°ú ºÎ¼­¹øÈ£¸¦ Ãâ·ÂÇÏ½Ã¿À.
+-- 4. ì‚¬ì›ë²ˆí˜¸ê°€ 7788ì¸ ì‚¬ì›ì˜ ì´ë¦„ê³¼ ë¶€ì„œë²ˆí˜¸ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, deptno from emp where empno = 7788;
 
--- 5. ±Þ¿©°¡ 2000¿¡¼­ 3000 »çÀÌ¿¡ Æ÷ÇÔµÇÁö ¾Ê´Â »ç¿øÀÇ ÀÌ¸§°ú ±Þ¿©¸¦ Ãâ·ÂÇÏ½Ã¿À.
+-- 5. ê¸‰ì—¬ê°€ 2000ì—ì„œ 3000 ì‚¬ì´ì— í¬í•¨ë˜ì§€ ì•ŠëŠ” ì‚¬ì›ì˜ ì´ë¦„ê³¼ ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, sal from emp where sal < 2000 or sal > 3000;
 select ename, sal from emp where sal not between 2000 and 3000;
 
--- 6. 1981³â 2¿ù 20ÀÏ ºÎÅÍ 1981³â 5¿ù 1ÀÏ »çÀÌ¿¡ ÀÔ»çÇÑ »ç¿øÀÇ ÀÌ¸§, ´ã´ç¾÷¹«, ÀÔ»çÀÏÀ» Ãâ·ÂÇÏ½Ã¿À.
+-- 6. 1981ë…„ 2ì›” 20ì¼ ë¶€í„° 1981ë…„ 5ì›” 1ì¼ ì‚¬ì´ì— ìž…ì‚¬í•œ ì‚¬ì›ì˜ ì´ë¦„, ë‹´ë‹¹ì—…ë¬´, ìž…ì‚¬ì¼ì„ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, job, hiredate from emp where hiredate between '81/02/20' and '81/05/01';
 
--- 7. ºÎ¼­¹øÈ£°¡ 20 ¹× 30¿¡ ¼ÓÇÑ »ç¿øÀÇ ÀÌ¸§°ú ºÎ¼­¹øÈ£¸¦ Ãâ·Â, ÀÌ¸§À» ±âÁØ(³»¸²Â÷¼ø)À¸·Î ¿µ¹®ÀÚ¼øÀ¸·Î Ãâ·ÂÇÏ½Ã¿À.
+-- 7. ë¶€ì„œë²ˆí˜¸ê°€ 20 ë° 30ì— ì†í•œ ì‚¬ì›ì˜ ì´ë¦„ê³¼ ë¶€ì„œë²ˆí˜¸ë¥¼ ì¶œë ¥, ì´ë¦„ì„ ê¸°ì¤€(ë‚´ë¦¼ì°¨ìˆœ)ìœ¼ë¡œ ì˜ë¬¸ìžìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, deptno from emp where deptno in(20, 30) order by ename desc;
 
--- 8. »ç¿øÀÇ ±Þ¿©°¡ 2000¿¡¼­ 3000»çÀÌ¿¡ Æ÷ÇÔµÇ°í ºÎ¼­¹øÈ£°¡ 20 ¶Ç´Â 30ÀÎ »ç¿øÀÇ ÀÌ¸§, ±Þ¿©¿Í ºÎ¼­¹øÈ£¸¦ Ãâ·Â, ÀÌ¸§¼ø(¿À¸§Â÷¼ø)À¸·Î Ãâ·ÂÇÏ½Ã¿À.
+-- 8. ì‚¬ì›ì˜ ê¸‰ì—¬ê°€ 2000ì—ì„œ 3000ì‚¬ì´ì— í¬í•¨ë˜ê³  ë¶€ì„œë²ˆí˜¸ê°€ 20 ë˜ëŠ” 30ì¸ ì‚¬ì›ì˜ ì´ë¦„, ê¸‰ì—¬ì™€ ë¶€ì„œë²ˆí˜¸ë¥¼ ì¶œë ¥, ì´ë¦„ìˆœ(ì˜¤ë¦„ì°¨ìˆœ)ìœ¼ë¡œ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, sal, deptno from emp where sal between 2000 and 3000 and deptno in(20, 30) order by ename;
 
--- 9. 1981³âµµ¿¡ ÀÔ»çÇÑ »ç¿øÀÇ ÀÌ¸§°ú ÀÔ»çÀÏÀ» Ãâ·ÂÇÏ½Ã¿À. (like ¿¬»êÀÚ¿Í ¿ÍÀÏµåÄ«µå »ç¿ë)
+-- 9. 1981ë…„ë„ì— ìž…ì‚¬í•œ ì‚¬ì›ì˜ ì´ë¦„ê³¼ ìž…ì‚¬ì¼ì„ ì¶œë ¥í•˜ì‹œì˜¤. (like ì—°ì‚°ìžì™€ ì™€ì¼ë“œì¹´ë“œ ì‚¬ìš©)
 
 select ename, hiredate from emp where hiredate like '81%';
 
--- 10. °ü¸®ÀÚ°¡ ¾ø´Â »ç¿øÀÇ ÀÌ¸§°ú ´ã´ç ¾÷¹«¸¦ Ãâ·ÂÇÏ½Ã¿À.
+-- 10. ê´€ë¦¬ìžê°€ ì—†ëŠ” ì‚¬ì›ì˜ ì´ë¦„ê³¼ ë‹´ë‹¹ ì—…ë¬´ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, job from emp where mgr is null;
 
--- 11. Ä¿¹Ì¼ÇÀ» ¹ÞÀ» ¼ö ÀÖ´Â ÀÚ°ÝÀÌ µÇ´Â »ç¿øÀÇ ÀÌ¸§, ±Þ¿©, Ä¿¹Ì¼ÇÀ» Ãâ·ÂÇÏµÇ ±Þ¿© ¹× Ä¿¹Ì¼ÇÀ» ±âÁØÀ¸·Î ³»¸²Â÷¼ø Á¤·ÄÇÏ¿© Ç¥½ÃÇÏ½Ã¿À.
+-- 11. ì»¤ë¯¸ì…˜ì„ ë°›ì„ ìˆ˜ ìžˆëŠ” ìžê²©ì´ ë˜ëŠ” ì‚¬ì›ì˜ ì´ë¦„, ê¸‰ì—¬, ì»¤ë¯¸ì…˜ì„ ì¶œë ¥í•˜ë˜ ê¸‰ì—¬ ë° ì»¤ë¯¸ì…˜ì„ ê¸°ì¤€ìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬í•˜ì—¬ í‘œì‹œí•˜ì‹œì˜¤.
 
 select ename, sal, comm from emp where comm is not null and comm > 0 order by comm desc;
 select ename, sal, comm from emp where comm is not null order by comm desc;
 
--- 12. ÀÌ¸§ÀÇ ¼¼¹øÂ° ¹®ÀÚ°¡ RÀÎ »ç¿øÀÇ ÀÌ¸§À» Ç¥½ÃÇÏ½Ã¿À.
+-- 12. ì´ë¦„ì˜ ì„¸ë²ˆì§¸ ë¬¸ìžê°€ Rì¸ ì‚¬ì›ì˜ ì´ë¦„ì„ í‘œì‹œí•˜ì‹œì˜¤.
 
 select ename from emp where ename like '__R%';
 
--- 13. ÀÌ¸§¿¡ A¿Í E¸¦ ¸ðµÎ Æ÷ÇÔÇÏ°í ÀÖ´Â »ç¿øÀÇ ÀÌ¸§À» Ç¥½ÃÇÏ½Ã¿À.
+-- 13. ì´ë¦„ì— Aì™€ Eë¥¼ ëª¨ë‘ í¬í•¨í•˜ê³  ìžˆëŠ” ì‚¬ì›ì˜ ì´ë¦„ì„ í‘œì‹œí•˜ì‹œì˜¤.
 
 select ename from emp where ename like '%A%' and ename like '%E%';
 
--- 14. ´ã´ç¾÷¹«°¡ CLERK, ¶Ç´Â SALESMANÀÌ¸é¼­ ±Þ¿©°¡ $1600, $950 ¶Ç´Â $1300ÀÌ ¾Æ´Ñ »ç¿øÀÇ ÀÌ¸§, ´ã´ç¾÷¹«, ±Þ¿©¸¦ Ãâ·ÂÇÏ½Ã¿À.
+-- 14. ë‹´ë‹¹ì—…ë¬´ê°€ CLERK, ë˜ëŠ” SALESMANì´ë©´ì„œ ê¸‰ì—¬ê°€ $1600, $950 ë˜ëŠ” $1300ì´ ì•„ë‹Œ ì‚¬ì›ì˜ ì´ë¦„, ë‹´ë‹¹ì—…ë¬´, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, job, sal from emp where job not in('CLERK', 'SALESMAN') and sal not in(1600, 950, 1300);
 
--- 15. Ä¿¹Ì¼ÇÀÌ $500 ÀÌ»óÀÎ »ç¿øÀÇ ÀÌ¸§°ú ±Þ¿© ¹× Ä¿¹Ì¼ÇÀ» Ãâ·ÂÇÏ½Ã¿À.
+-- 15. ì»¤ë¯¸ì…˜ì´ $500 ì´ìƒì¸ ì‚¬ì›ì˜ ì´ë¦„ê³¼ ê¸‰ì—¬ ë° ì»¤ë¯¸ì…˜ì„ ì¶œë ¥í•˜ì‹œì˜¤.
 
 select ename, sal, comm from emp where comm >= 500;

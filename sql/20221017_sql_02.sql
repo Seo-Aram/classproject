@@ -1,34 +1,34 @@
--- 1 ¸¶´ç¼­Á¡ÀÇ°í°´ÀÌ¿ä±¸ÇÏ´Â´ÙÀ½Áú¹®¿¡´ëÇØSQL ¹®À»ÀÛ¼ºÇÏ½Ã¿À.
--- (5) ¹ÚÁö¼ºÀÌ±¸¸ÅÇÑµµ¼­ÀÇÃâÆÇ»ç¼ö
+-- 1 ë§ˆë‹¹ì„œì ì˜ê³ ê°ì´ìš”êµ¬í•˜ëŠ”ë‹¤ìŒì§ˆë¬¸ì—ëŒ€í•´SQL ë¬¸ì„ì‘ì„±í•˜ì‹œì˜¤.
+-- (5) ë°•ì§€ì„±ì´êµ¬ë§¤í•œë„ì„œì˜ì¶œíŒì‚¬ìˆ˜
 select count(distinct publisher) as cnt
 from book
 where bookid in(
     select bookid 
     from orders o, customer c
-    where o.custid = c.custid and c.name ='¹ÚÁö¼º'
+    where o.custid = c.custid and c.name ='ë°•ì§€ì„±'
 )
 ;
 
--- (6) ¹ÚÁö¼ºÀÌ±¸¸ÅÇÑµµ¼­ÀÇÀÌ¸§, °¡°İ, Á¤°¡¿ÍÆÇ¸Å°¡°İÀÇÂ÷ÀÌ
+-- (6) ë°•ì§€ì„±ì´êµ¬ë§¤í•œë„ì„œì˜ì´ë¦„, ê°€ê²©, ì •ê°€ì™€íŒë§¤ê°€ê²©ì˜ì°¨ì´
 select b.bookname, b.price, b.price - o.saleprice as price_gap
 from orders o, customer c, book b
 where o.custid = c.custid
 and b.bookid = o.bookid
-and c.name ='¹ÚÁö¼º'
+and c.name ='ë°•ì§€ì„±'
 ;
 
--- (7) ¹ÚÁö¼ºÀÌ±¸¸ÅÇÏÁö¾ÊÀºµµ¼­ÀÇÀÌ¸§
+-- (7) ë°•ì§€ì„±ì´êµ¬ë§¤í•˜ì§€ì•Šì€ë„ì„œì˜ì´ë¦„
 select bookname
 from book
 where bookid not in(
     select bookid 
     from orders o, customer c
-    where o.custid = c.custid and c.name ='¹ÚÁö¼º'
+    where o.custid = c.custid and c.name ='ë°•ì§€ì„±'
 )
 ;
 
--- 2 ¸¶´ç¼­Á¡ÀÇ¿î¿µÀÚ¿Í°æ¿µÀÚ°¡¿ä±¸ÇÏ´Â´ÙÀ½Áú¹®¿¡´ëÇØSQL ¹®À»ÀÛ¼ºÇÏ½Ã¿À.
--- (8) ÁÖ¹®ÇÏÁö¾ÊÀº°í°´ÀÇÀÌ¸§(ºÎ¼ÓÁúÀÇ»ç¿ë)
+-- 2 ë§ˆë‹¹ì„œì ì˜ìš´ì˜ìì™€ê²½ì˜ìê°€ìš”êµ¬í•˜ëŠ”ë‹¤ìŒì§ˆë¬¸ì—ëŒ€í•´SQL ë¬¸ì„ì‘ì„±í•˜ì‹œì˜¤.
+-- (8) ì£¼ë¬¸í•˜ì§€ì•Šì€ê³ ê°ì˜ì´ë¦„(ë¶€ì†ì§ˆì˜ì‚¬ìš©)
 select name
 from customer
 where custid not in (
@@ -37,37 +37,36 @@ where custid not in (
 )
 ;
 
--- (9) ÁÖ¹®±İ¾×ÀÇÃÑ¾×°úÁÖ¹®ÀÇÆò±Õ±İ¾×
+-- (9) ì£¼ë¬¸ê¸ˆì•¡ì˜ì´ì•¡ê³¼ì£¼ë¬¸ì˜í‰ê· ê¸ˆì•¡
 select sum(saleprice) as total, avg(saleprice) as average
 from orders
 ;
 
--- (10) °í°´ÀÇÀÌ¸§°ú°í°´º°±¸¸Å¾×
+-- (10) ê³ ê°ì˜ì´ë¦„ê³¼ê³ ê°ë³„êµ¬ë§¤ì•¡
 select c.name, sum(o.saleprice)
 from customer c, orders o
 where c.custid = o.custid
 group by c.name
 ;
 
--- (11) °í°´ÀÇÀÌ¸§°ú°í°´ÀÌ±¸¸ÅÇÑµµ¼­¸ñ·Ï
+-- (11) ê³ ê°ì˜ì´ë¦„ê³¼ê³ ê°ì´êµ¬ë§¤í•œë„ì„œëª©ë¡
 select c.name, b.bookname
 from customer c, book b, orders o
 where c.custid = o.custid and o.bookid = b.bookid
 ;
 
--- (12) µµ¼­ÀÇ°¡°İ(Book Å×ÀÌºí)°úÆÇ¸Å°¡°İ(Orders Å×ÀÌºí)ÀÇÂ÷ÀÌ°¡°¡Àå¸¹ÀºÁÖ¹®
+-- (12) ë„ì„œì˜ê°€ê²©(Book í…Œì´ë¸”)ê³¼íŒë§¤ê°€ê²©(Orders í…Œì´ë¸”)ì˜ì°¨ì´ê°€ê°€ì¥ë§ì€ì£¼ë¬¸
 select * 
-from orders o, (
-    select orderid, b.price - o.saleprice as price_gap
+from (
+    select orderid, b.bookid, o.saleprice, o.orderdate, bookname, publisher, price
     from orders o, book b
     where b.bookid = o.bookid
-    order by price_gap desc
+    order by b.price - o.saleprice desc
 ) c
-where o.orderid = c.orderid
-and rownum = 1
+where rownum = 1
 ;
 
--- (13) µµ¼­ÀÇÆÇ¸Å¾×Æò±Õº¸´ÙÀÚ½ÅÀÇ±¸¸Å¾×Æò±ÕÀÌ´õ³ôÀº°í°´ÀÇÀÌ¸§
+-- (13) ë„ì„œì˜íŒë§¤ì•¡í‰ê· ë³´ë‹¤ìì‹ ì˜êµ¬ë§¤ì•¡í‰ê· ì´ë”ë†’ì€ê³ ê°ì˜ì´ë¦„
 select c.name
 from customer c,
 (
@@ -83,8 +82,8 @@ where c.custid in (o1.custid) and o1.avg_price >= o2.avg_price
 ;
 
 
--- 3. ¸¶´ç¼­Á¡¿¡¼­ ´ÙÀ½ÀÇ ½ÉÈ­µÈ Áú¹®¿¡ ´ëÇØ SQL ¹®À» ÀÛ¼ºÇÏ½Ã¿À.
--- (1) ¹ÚÁö¼ºÀÌ ±¸¸ÅÇÑ µµ¼­ÀÇ ÃâÆÇ»ç¿Í °°Àº ÃâÆÇ»ç¿¡¼­ µµ¼­¸¦ ±¸¸ÅÇÑ °í°´ÀÇ ÀÌ¸§
+-- 3. ë§ˆë‹¹ì„œì ì—ì„œ ë‹¤ìŒì˜ ì‹¬í™”ëœ ì§ˆë¬¸ì— ëŒ€í•´ SQL ë¬¸ì„ ì‘ì„±í•˜ì‹œì˜¤.
+-- (1) ë°•ì§€ì„±ì´ êµ¬ë§¤í•œ ë„ì„œì˜ ì¶œíŒì‚¬ì™€ ê°™ì€ ì¶œíŒì‚¬ì—ì„œ ë„ì„œë¥¼ êµ¬ë§¤í•œ ê³ ê°ì˜ ì´ë¦„
 select name
 from customer c
 where custid in (
@@ -97,11 +96,11 @@ where custid in (
         where bookid in(
             select bookid 
             from orders o, customer c
-            where o.custid = c.custid and c.name ='¹ÚÁö¼º'
+            where o.custid = c.custid and c.name ='ë°•ì§€ì„±'
         )
     )
 )
-and name <> '¹ÚÁö¼º'
+and name <> 'ë°•ì§€ì„±'
 ;
 
 select name
@@ -116,14 +115,14 @@ from customer c,
         where bookid in(
             select bookid 
             from orders o, customer c
-            where o.custid = c.custid and c.name ='¹ÚÁö¼º'
+            where o.custid = c.custid and c.name ='ë°•ì§€ì„±'
         )
     )
 ) o
-where c.custid = o.custid and c.name <> '¹ÚÁö¼º'
+where c.custid = o.custid and c.name <> 'ë°•ì§€ì„±'
 ;
 
--- (2) µÎ °³ ÀÌ»óÀÇ ¼­·Î ´Ù¸¥ ÃâÆÇ»ç¿¡¼­ µµ¼­¸¦ ±¸¸ÅÇÑ °í°´ÀÇ ÀÌ¸§
+-- (2) ë‘ ê°œ ì´ìƒì˜ ì„œë¡œ ë‹¤ë¥¸ ì¶œíŒì‚¬ì—ì„œ ë„ì„œë¥¼ êµ¬ë§¤í•œ ê³ ê°ì˜ ì´ë¦„
 select name
 from customer c,
 (

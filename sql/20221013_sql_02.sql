@@ -1,25 +1,25 @@
--- 1 ¸¶´ç¼­Á¡ÀÇ°í°´ÀÌ¿ä±¸ÇÏ´Â´ÙÀ½Áú¹®¿¡´ëÇØSQL ¹®À»ÀÛ¼ºÇÏ½Ã¿À.
--- (1) µµ¼­¹øÈ£°¡1ÀÎµµ¼­ÀÇÀÌ¸§
+-- 1 ë§ˆë‹¹ì„œì ì˜ê³ ê°ì´ìš”êµ¬í•˜ëŠ”ë‹¤ìŒì§ˆë¬¸ì—ëŒ€í•´SQL ë¬¸ì„ì‘ì„±í•˜ì‹œì˜¤.
+-- (1) ë„ì„œë²ˆí˜¸ê°€1ì¸ë„ì„œì˜ì´ë¦„
 select bookname from book where bookid = 1;
--- (2) °¡°İÀÌ20,000¿øÀÌ»óÀÎµµ¼­ÀÇÀÌ¸§
+-- (2) ê°€ê²©ì´20,000ì›ì´ìƒì¸ë„ì„œì˜ì´ë¦„
 select bookname from book where price >= 20000;
--- (3) ¹ÚÁö¼ºÀÇÃÑ±¸¸Å¾×(¹ÚÁö¼ºÀÇ°í°´¹øÈ£´Â1¹øÀ¸·Î³õ°íÀÛ¼º)
+-- (3) ë°•ì§€ì„±ì˜ì´êµ¬ë§¤ì•¡(ë°•ì§€ì„±ì˜ê³ ê°ë²ˆí˜¸ëŠ”1ë²ˆìœ¼ë¡œë†“ê³ ì‘ì„±)
 select sum(saleprice) as total_price from orders where custid = 1;
-select sum(saleprice) as total_price from orders where custid = (select custid from customer where name='¹ÚÁö¼º');
--- (4) ¹ÚÁö¼ºÀÌ±¸¸ÅÇÑµµ¼­ÀÇ¼ö(¹ÚÁö¼ºÀÇ°í°´¹øÈ£´Â1¹øÀ¸·Î³õ°íÀÛ¼º)
+select sum(saleprice) as total_price from orders where custid = (select custid from customer where name='ë°•ì§€ì„±');
+-- (4) ë°•ì§€ì„±ì´êµ¬ë§¤í•œë„ì„œì˜ìˆ˜(ë°•ì§€ì„±ì˜ê³ ê°ë²ˆí˜¸ëŠ”1ë²ˆìœ¼ë¡œë†“ê³ ì‘ì„±)
 select count(*) as total_count from orders where custid = 1;
-select count(*) as total_count from orders where custid = (select custid from customer where name='¹ÚÁö¼º');
+select count(*) as total_count from orders where custid = (select custid from customer where name='ë°•ì§€ì„±');
 
 
 
--- 2 ¸¶´ç¼­Á¡ÀÇ¿î¿µÀÚ¿Í°æ¿µÀÚ°¡¿ä±¸ÇÏ´Â´ÙÀ½Áú¹®¿¡´ëÇØSQL ¹®À»ÀÛ¼ºÇÏ½Ã¿À.
--- (3) ¸ğµç°í°´ÀÇÀÌ¸§, ÁÖ¼Ò
+-- 2 ë§ˆë‹¹ì„œì ì˜ìš´ì˜ìì™€ê²½ì˜ìê°€ìš”êµ¬í•˜ëŠ”ë‹¤ìŒì§ˆë¬¸ì—ëŒ€í•´SQL ë¬¸ì„ì‘ì„±í•˜ì‹œì˜¤.
+-- (3) ëª¨ë“ ê³ ê°ì˜ì´ë¦„, ì£¼ì†Œ
 select name, address from customer;
--- (4) 2014³â7¿ù4ÀÏ~7¿ù7ÀÏ»çÀÌ¿¡ÁÖ¹®¹ŞÀºµµ¼­ÀÇÁÖ¹®¹øÈ£
+-- (4) 2014ë…„7ì›”4ì¼~7ì›”7ì¼ì‚¬ì´ì—ì£¼ë¬¸ë°›ì€ë„ì„œì˜ì£¼ë¬¸ë²ˆí˜¸
 select bookid from orders where orderdate between '14/07/04' and '14/07/07';
--- (5) 2014³â7¿ù4ÀÏ~7¿ù7ÀÏ»çÀÌ¿¡ÁÖ¹®¹ŞÀºµµ¼­¸¦Á¦¿ÜÇÑµµ¼­ÀÇÁÖ¹®¹øÈ£
+-- (5) 2014ë…„7ì›”4ì¼~7ì›”7ì¼ì‚¬ì´ì—ì£¼ë¬¸ë°›ì€ë„ì„œë¥¼ì œì™¸í•œë„ì„œì˜ì£¼ë¬¸ë²ˆí˜¸
 select bookid from orders where orderdate not between '14/07/04' and '14/07/07';
--- (6) ¼ºÀÌ¡®±è¡¯¾¾ÀÎ°í°´ÀÇÀÌ¸§°úÁÖ¼Ò
-select name, address from customer where name like '±è%';
--- (7) ¼ºÀÌ¡®±è¡¯¾¾ÀÌ°íÀÌ¸§ÀÌ¡®¾Æ¡¯·Î³¡³ª´Â°í°´ÀÇÀÌ¸§°úÁÖ¼Ò
-select name, address from customer where name like '±è%¾Æ';
+-- (6) ì„±ì´â€˜ê¹€â€™ì”¨ì¸ê³ ê°ì˜ì´ë¦„ê³¼ì£¼ì†Œ
+select name, address from customer where name like 'ê¹€%';
+-- (7) ì„±ì´â€˜ê¹€â€™ì”¨ì´ê³ ì´ë¦„ì´â€˜ì•„â€™ë¡œëë‚˜ëŠ”ê³ ê°ì˜ì´ë¦„ê³¼ì£¼ì†Œ
+select name, address from customer where name like 'ê¹€%ì•„';

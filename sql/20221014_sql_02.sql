@@ -1,13 +1,13 @@
--- 1 ¸¶´ç¼­Á¡ÀÇ°í°´ÀÌ¿ä±¸ÇÏ´Â´ÙÀ½Áú¹®¿¡´ëÇØSQL ¹®À»ÀÛ¼ºÇÏ½Ã¿À.
--- (3) ¹ÚÁö¼ºÀÇÃÑ±¸¸Å¾×(¹ÚÁö¼ºÀÇ°í°´¹øÈ£´Â1¹øÀ¸·Î³õ°íÀÛ¼º)
+-- 1 ë§ˆë‹¹ì„œì ì˜ê³ ê°ì´ìš”êµ¬í•˜ëŠ”ë‹¤ìŒì§ˆë¬¸ì—ëŒ€í•´SQL ë¬¸ì„ì‘ì„±í•˜ì‹œì˜¤.
+-- (3) ë°•ì§€ì„±ì˜ì´êµ¬ë§¤ì•¡(ë°•ì§€ì„±ì˜ê³ ê°ë²ˆí˜¸ëŠ”1ë²ˆìœ¼ë¡œë†“ê³ ì‘ì„±)
 select sum(saleprice) as total_price from orders where custid = 1;
-select sum(saleprice) as total_price from orders where custid = (select custid from customer where name='¹ÚÁö¼º');
--- (4) ¹ÚÁö¼ºÀÌ±¸¸ÅÇÑµµ¼­ÀÇ¼ö(¹ÚÁö¼ºÀÇ°í°´¹øÈ£´Â1¹øÀ¸·Î³õ°íÀÛ¼º)
+select sum(saleprice) as total_price from orders where custid = (select custid from customer where name='ë°•ì§€ì„±');
+-- (4) ë°•ì§€ì„±ì´êµ¬ë§¤í•œë„ì„œì˜ìˆ˜(ë°•ì§€ì„±ì˜ê³ ê°ë²ˆí˜¸ëŠ”1ë²ˆìœ¼ë¡œë†“ê³ ì‘ì„±)
 select count(*) as total_count from orders where custid = 1;
-select count(*) as total_count from orders where custid = (select custid from customer where name='¹ÚÁö¼º');
+select count(*) as total_count from orders where custid = (select custid from customer where name='ë°•ì§€ì„±');
 -- 
--- 2 ¸¶´ç¼­Á¡ÀÇ¿î¿µÀÚ¿Í°æ¿µÀÚ°¡¿ä±¸ÇÏ´Â´ÙÀ½Áú¹®¿¡´ëÇØSQL ¹®À»ÀÛ¼ºÇÏ½Ã¿À.
--- (1) ¸¶´ç¼­Á¡µµ¼­ÀÇÃÑ°³¼ö
+-- 2 ë§ˆë‹¹ì„œì ì˜ìš´ì˜ìì™€ê²½ì˜ìê°€ìš”êµ¬í•˜ëŠ”ë‹¤ìŒì§ˆë¬¸ì—ëŒ€í•´SQL ë¬¸ì„ì‘ì„±í•˜ì‹œì˜¤.
+-- (1) ë§ˆë‹¹ì„œì ë„ì„œì˜ì´ê°œìˆ˜
 select count(*) as total_count from book;
--- (2) ¸¶´ç¼­Á¡¿¡µµ¼­¸¦Ãâ°íÇÏ´ÂÃâÆÇ»çÀÇÃÑ°³¼ö
+-- (2) ë§ˆë‹¹ì„œì ì—ë„ì„œë¥¼ì¶œê³ í•˜ëŠ”ì¶œíŒì‚¬ì˜ì´ê°œìˆ˜
 select count(distinct publisher) as pub from book;
