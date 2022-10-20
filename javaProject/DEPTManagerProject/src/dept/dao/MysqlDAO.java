@@ -102,14 +102,14 @@ public class MysqlDAO implements Dao {
 	}
 
 	@Override
-	public int delete(Connection conn, Dept dept) throws SQLException {
+	public int delete(Connection conn, int deptno) throws SQLException {
 		int result = 0;
 		String sql = "delete from dept where deptno = ?";
 		PreparedStatement pstmt = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dept.getDeptno());
+			pstmt.setInt(1, deptno);
 			result = pstmt.executeUpdate();
 		} finally {
 			if(pstmt != null) pstmt.close();
