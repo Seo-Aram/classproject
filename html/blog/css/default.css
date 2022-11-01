@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lobster&family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /*font-family: 'Noto Sans KR', sans-serif;*/
+    font-family: 'Nanum Myeongjo', serif;
+    width: 800px;
+    border: 3px solid #aaa;
+
+    margin: 10px auto;
+    border-radius: 5px;
+
+    box-shadow: 3px 3px #aaa;
+    padding: 15px;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+a:visited{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color:rgb(0, 213, 255);
+}
+
+/* header */
+header {
+    padding: 30px;
+}
+
+.title {
+    font-family: 'Lobster', cursive;
+}
+
+header>p{
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* nav */
+nav {
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    padding: 5px;
+    overflow: hidden;
+}
+
+nav>ul{
+    float: left;
+    width: 450px;
+    overflow: hidden;
+    list-style: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+nav>ul>li {
+    float: left;
+    width: 100px;
+}
+
+nav>div{
+    float: right;
+    text-align: right;
+    width: 250px;
+}
+
+nav>div>input[type=text] {
+    height: 20px;
+    width: 150px;
+    border-radius: 10px 0 0 10px;
+    padding-left: 10px;
+}
+
+nav>div>input[type=button] {
+    height: 24px;
+    width: 70px;
+    margin-left: -6px;
+    border-radius: 0 10px 10px 0;
+
+    vertical-align: middel;
+}
+
+/* wrap */
+#wrap {
+    overflow: hidden;
+}
+
+/* section */
+section {
+    width: 590px;
+    float: left;
+}
+
+article {
+    margin-top: 10px;
+    padding: 10px;
+    border-bottom: 10px solid #aaa;
+}
+article>h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 10px 0;
+}
+
+article>h2+p{
+    font-size: small;
+}
+
+.lh-180{
+    line-height: 180%;
+    white-space: pre-line;
+}
+
+article>img {
+    width: 80%;
+}
+
+/* aside */
+aside {
+    width: 190px;
+    height: 500px;
+    float: right;
+}
+
+aside>h4 {
+    margin-top: 30px;
+}
+
+aside>ul {
+    list-style: none;
+    margin-left: 10px;
+}
+
+/* footer */
+footer {
+    height: 40px;
+    margin-top: 30px;
+    text-align: center;
+}
