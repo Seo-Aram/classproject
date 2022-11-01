@@ -71,7 +71,6 @@ div>div>img{
     background: #FFFFFF ;
     border: 1px solid #dddfe2;
     color: #1d2129;
-    font-family: Helvetica, Arial, sans-serif;
     font-size: 12px;
     height: 22px;
     line-height: 16px;
@@ -132,7 +131,6 @@ a{
     text-align: center;
     border-top: none;
     color: #1c1e21;
-    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: normal;
     padding-top: 0;
