@@ -46,6 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
         removeBtn.addEventListener('click', (event) => {
             tr.remove();
         });
+
+        idInput.value = '';
+        pwInput.value = '';
+        pw2Input.value = '';
+        nameInput.value = '';
+        idInput.focus();
     });
 });
 
