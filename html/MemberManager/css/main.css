@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lobster&family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1, h3{
+    margin: 20px;
+}
+
+div{
+    padding: 10px;
+}
+
+.wrap{
+    overflow: hidden;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    width: auto;
+}
+
+.main-form{
+    width: 500px;
+    display: inline-block;
+    float: left;
+}
+
+.input-text {
+    background: #FFFFFF ;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    font-size: 8px;
+    height: 16px;
+    line-height: 14px;
+    padding: 0 8px;
+    vertical-align: middle;
+    font-size: 17px;
+    padding: 10px 7px;
+    width: 200px;
+    border-radius: 6px;
+    margin:5px;
+}
+
+.button{
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    line-height: 32px;
+    padding: 0 16px;
+    width: 160px;
+    cursor: pointer;
+}
+
+.remove {
+    background-color: brown;
+    width: 80px;
+}
+
+.label {
+    width: 120px;
+    margin-right: 0px;
+    float: left;
+}
+
+#apply{
+    background-color: #3E63E3;
+}
+#reset{
+    background-color: black;
+    float: right;
+}
+
+tr{
+    margin: 10px;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #aaa;
+    padding: 15px;
+    min-width: 50px;
+}
+
+td {
+    padding: 5px;
+    min-width: 50px;
+}
