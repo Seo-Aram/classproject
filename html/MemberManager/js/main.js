@@ -1,14 +1,14 @@
 let index = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
-    const submit = document.querySelector("#apply");
-    const listView = document.querySelector("#apply-list");
+    const submit = document.querySelector('#apply');
+    const listView = document.querySelector('#apply-list');
 
     submit.addEventListener('click', (event) => {
-        let idInput = document.querySelector("#id");
-        let pwInput = document.querySelector("#pw");
-        let pw2Input = document.querySelector("#pw2");
-        let nameInput = document.querySelector("#name");
+        let idInput = document.querySelector('#id');
+        let pwInput = document.querySelector('#pw');
+        let pw2Input = document.querySelector('#pw2');
+        let nameInput = document.querySelector('#name');
         if(idInput.value.trim() == '') {
             alertBlankMessage(idInput, 'id');
             return;
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if(pwInput.value.trim() != pw2Input.value.trim()) {
-            alert("비밀번호가 다릅니다. 다시 확인해주세요.");
+            alert('비밀번호가 다릅니다. 다시 확인해주세요.');
             pw2Input.value = "";
             pw2Input.focus();
             return;
