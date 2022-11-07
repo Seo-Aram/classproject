@@ -2,6 +2,10 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java
 
 ### Eclipse ###
+
+# Tomcat Server #
+Servers
+
 .metadata
 bin/
 tmp/
