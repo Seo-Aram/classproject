@@ -11,11 +11,13 @@ import java.io.PrintWriter;
 public class SignupServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        request.setCharacterEncoding("UTF-8");
+
         String userId = request.getParameter("userId");
         String userPw = request.getParameter("userPw");
         String userName = request.getParameter("userName");
 
-        response.setContentType("text/html");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println("<html>");
         out.println("<head>");
