@@ -15,7 +15,7 @@
             <input type="hidden" name="key" value="${data.key}">
             <label>할 일 : </label> <input type="text" disabled name="title" value="${data.title}"/> <br/>
             <label>날짜 : </label> <input type="date" disabled name="date" value="${data.date}"/> <br/>
-            <button><a href="/modify?key=${data.key}">수정</a></button>
+            <input type="button" value="수정" onclick="location.href='/modify?key=${data.key}'"/>
             <input type="submit" value="삭제"/>
         </form>
     </body>
