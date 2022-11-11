@@ -30,7 +30,7 @@ public class TodoModifyController extends HttpServlet {
         String key = request.getParameter("key");
         String title = request.getParameter("title");
         String date = request.getParameter("date");
-        boolean isCheck = Boolean.getBoolean(request.getParameter("isCheck"));
+        boolean isCheck = request.getParameter("isCheck") != null ? true : false;
 
         TodoDataList.getInstance().updateTodoData(key, title, date, isCheck);
 

@@ -4,7 +4,7 @@ public class TodoData {
     private String key;
     private String title;
     private String date;
-    private boolean isCheck;
+    private boolean check;
 
     private static int index = 0;
 
@@ -12,7 +12,7 @@ public class TodoData {
         this.key = String.valueOf(index++) + System.currentTimeMillis();
         this.title = title;
         this.date = date;
-        this.isCheck = false;
+        this.check = false;
 
         index %= 10;
     }
@@ -26,7 +26,7 @@ public class TodoData {
     }
 
     public void setCheck(boolean check) {
-        isCheck = check;
+        this.check = check;
     }
 
     public String getKey() {
@@ -42,7 +42,7 @@ public class TodoData {
     }
 
     public boolean isCheck() {
-        return isCheck;
+        return check;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class TodoData {
                 "key='" + key + '\'' +
                 ", title='" + title + '\'' +
                 ", date='" + date + '\'' +
-                ", isCheck=" + isCheck +
+                ", isCheck=" + check +
                 '}';
     }
 }

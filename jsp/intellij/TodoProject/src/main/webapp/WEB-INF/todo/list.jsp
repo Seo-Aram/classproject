@@ -23,13 +23,14 @@
             <tbody>
             <c:forEach var="data" items="${list}">
                 <tr>
-                    <td> <input type="checkbox" name="key" value="${data.key}"/> </td>
+                    <td>
+                        <input type="checkbox" name="key" value="${data.key}" <c:if test="${data.check}">checked</c:if> >
                     <td>
                         <a href="/read?key=${data.key}">
-                            <c:out value="${data.title}"></c:out>
+                            ${data.title}
                         </a>
                     </td>
-                    <td><c:out value="${data.date}"></c:out></td>
+                    <td>${data.date}</td>
                 </tr>
             </c:forEach>
             </tbody>

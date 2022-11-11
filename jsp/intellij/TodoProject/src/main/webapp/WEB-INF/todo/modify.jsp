@@ -12,12 +12,10 @@
     <title>Modify</title>
 </head>
 <body>
-${data}
 <form action="/modify" method="post">
     <input type="hidden" name="key" value="${data.key}">
 
-    <input type="checkbox" name="isCheck" <c:if test="${false}">checked</c:if> >
-    <!-- data.isCheck 이게 이상하게 안먹음 --;; -->
+    <input type="checkbox" name="isCheck" <c:if test="${data.check}">checked</c:if> >
     <label>할 일 : </label> <input type="text" name="title" value="${data.title}"/> <br/>
     <label>날짜 : </label> <input type="date" name="date" value="${data.date}"/> <br/>
     <input type="submit" value="수정"/>
