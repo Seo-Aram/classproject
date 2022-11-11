@@ -14,7 +14,7 @@
     <body>
         <form action="/remove" method="post">
             <input type="hidden" name="key" value="${data.key}">
-            <input type="checkbox" name="isCheck" disabled <c:if test="${data.check}">checked</c:if> >
+            <input type="checkbox" name="isCheck" disabled ${data.check ? "checked" : ""} >
             <label>할 일 : </label> <input type="text" disabled name="title" value="${data.title}"/> <br/>
             <label>날짜 : </label> <input type="date" disabled name="date" value="${data.date}"/> <br/>
             <input type="button" value="수정" onclick="location.href='/modify?key=${data.key}'"/>

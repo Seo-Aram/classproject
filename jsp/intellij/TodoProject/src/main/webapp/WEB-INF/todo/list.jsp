@@ -24,7 +24,7 @@
             <c:forEach var="data" items="${list}">
                 <tr>
                     <td>
-                        <input type="checkbox" name="key" value="${data.key}" <c:if test="${data.check}">checked</c:if> >
+                        <input type="checkbox" name="key" value="${data.key}" ${data.check ? "checked" : ""} >
                     <td>
                         <a href="/read?key=${data.key}">
                             ${data.title}
