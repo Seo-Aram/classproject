@@ -1,10 +1,17 @@
 package util;
 
 import lombok.*;
+import lombok.extern.log4j.Log4j2;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -12,6 +19,7 @@ import java.util.Set;
 /**
  * config.json load 클래스.
  */
+@Log4j2
 public class ConfigUtil {
     private Map<String, Object> config;
     private static ConfigUtil instance;
@@ -22,8 +30,11 @@ public class ConfigUtil {
         JSONParser parser = new JSONParser();
 
         try {
-            // 현재 경로에 따라 파일 오픈이 안되고 있음
-            @Cleanup FileReader fr = new FileReader("config.json");
+            FileInputStream file = null;
+            BufferedReader br = null;
+            ClassLoader loader = ConfigUtil.class.getClassLoader();
+            @Cleanup FileReader fr = new FileReader(loader.getResource("config.json").getFile());
+
             Object obj = parser.parse(fr);
             JSONObject jsonConfig = (JSONObject) obj;
 

@@ -12,12 +12,12 @@
         <title>READ</title>
     </head>
     <body>
-        <form action="/remove" method="post">
+        <form action="/todo/remove" method="post">
             <input type="hidden" name="key" value="${data.key}">
             <input type="checkbox" name="isCheck" disabled ${data.check ? "checked" : ""} >
             <label>할 일 : </label> <input type="text" disabled name="title" value="${data.title}"/> <br/>
             <label>날짜 : </label> <input type="date" disabled name="date" value="${data.date}"/> <br/>
-            <input type="button" value="수정" onclick="location.href='/modify?key=${data.key}'"/>
+            <input type="button" value="수정" onclick="location.href='/todo/modify?key=${data.key}'"/>
             <input type="submit" value="삭제"/>
         </form>
     </body>

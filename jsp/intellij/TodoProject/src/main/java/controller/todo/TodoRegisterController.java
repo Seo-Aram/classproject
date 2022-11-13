@@ -9,7 +9,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @Log4j2
-@WebServlet(name = "TodoRegisterController", value = "/register")
+@WebServlet(name = "TodoRegisterController", value = "/todo/register")
 public class TodoRegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,6 +32,6 @@ public class TodoRegisterController extends HttpServlet {
 
         log.debug(title, date);
 
-        response.sendRedirect("/list");
+        response.sendRedirect("/todo/list");
     }
 }

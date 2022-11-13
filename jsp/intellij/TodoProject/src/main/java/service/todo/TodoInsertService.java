@@ -1,6 +1,6 @@
 package service.todo;
 
-import dao.TodoListDao;
+import controller.dao.TodoListDao;
 import lombok.Cleanup;
 import lombok.extern.log4j.Log4j2;
 import util.ConnectionUtil;

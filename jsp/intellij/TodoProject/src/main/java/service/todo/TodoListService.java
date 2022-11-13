@@ -1,6 +1,6 @@
 package service.todo;
 
-import dao.TodoListDao;
+import controller.dao.TodoListDao;
 import lombok.Cleanup;
 import module.todo.TodoData;
 import util.ConnectionUtil;

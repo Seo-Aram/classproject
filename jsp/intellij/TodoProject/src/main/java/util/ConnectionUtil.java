@@ -20,16 +20,16 @@ public class ConnectionUtil {
 
     private ConnectionUtil() {
         HikariConfig config = new HikariConfig();
-        config.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        /*config.setDriverClassName("com.mysql.cj.jdbc.Driver");
         config.setJdbcUrl("jdbc:mysql://localhost:3306/project");
         config.setUsername("root");
-        config.setPassword("admin");
+        config.setPassword("admin");*/
 
-        /*ConfigUtil conf = ConfigUtil.getInstance();
+        ConfigUtil conf = ConfigUtil.getInstance();
         config.setDriverClassName((String)conf.getConfig("jdbc"));
         config.setJdbcUrl((String)conf.getConfig("dbUrl"));
         config.setUsername((String)conf.getConfig("dbUser"));
-        config.setPassword((String)conf.getConfig("dbPassword"));*/
+        config.setPassword((String)conf.getConfig("dbPassword"));
 
         config.addDataSourceProperty("cachePrepStmts", true);
         config.addDataSourceProperty("prepStmtCacheSize", 250);

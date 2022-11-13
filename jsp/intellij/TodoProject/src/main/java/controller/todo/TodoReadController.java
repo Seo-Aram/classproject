@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "TodoReadController", value = "/read")
+@WebServlet(name = "TodoReadController", value = "/todo/read")
 public class TodoReadController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,6 +18,6 @@ public class TodoReadController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.sendRedirect("/list");
+        response.sendRedirect("/todo/list");
     }
 }

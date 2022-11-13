@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Log4j2
-@WebServlet(name = "TodoListController", value = "/list")
+@WebServlet(name = "TodoListController", value = "/todo/list")
 public class TodoListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,6 +30,6 @@ public class TodoListController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/list");
+        response.sendRedirect("/todo/list");
     }
 }

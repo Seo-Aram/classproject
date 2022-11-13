@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "TodoRemoveController", value = "/remove")
+@WebServlet(name = "TodoRemoveController", value = "/todo/remove")
 public class TodoRemoveController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,7 +23,7 @@ public class TodoRemoveController extends HttpServlet {
             }
         }
 
-        response.sendRedirect("/list");
+        response.sendRedirect("/todo/list");
     }
 
     @Override
@@ -37,6 +37,6 @@ public class TodoRemoveController extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("/list");
+        response.sendRedirect("/todo/list");
     }
 }

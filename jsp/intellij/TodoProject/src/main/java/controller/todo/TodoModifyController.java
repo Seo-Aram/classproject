@@ -11,7 +11,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @Log4j2
-@WebServlet(name = "TodoModifyController", value = "/modify")
+@WebServlet(name = "TodoModifyController", value = "/todo/modify")
 public class TodoModifyController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,7 +52,7 @@ public class TodoModifyController extends HttpServlet {
             e.printStackTrace();
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/list");
+        RequestDispatcher rd = request.getRequestDispatcher("/todo/list");
         rd.forward(request, response);
     }
 }

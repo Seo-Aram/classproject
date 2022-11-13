@@ -1,5 +1,7 @@
 package controller.sign;
 
+import service.sign.SignInService;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -9,11 +11,13 @@ import java.io.IOException;
 public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession().getAttribute("id") != null) {
-            response.sendRedirect("/list");
+        if(request.getSession(false) != null &&
+                request.getSession().getAttribute("id") != null) {
+            response.sendRedirect("/todo/list");
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/sign/login.jsp");
+            rd.forward(request, response);
         }
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/sign/login.jsp");
-        rd.forward(request, response);
     }
 
     @Override
@@ -21,6 +25,21 @@ public class LoginController extends HttpServlet {
         String id = request.getParameter("id");
         String password = request.getParameter("password");
 
-        request.getSession().setAttribute("id", id);
+        boolean isSuccess = false;
+
+        try {
+            SignInService service = new SignInService();
+            isSuccess = service.signInService(id, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if(isSuccess) {
+            request.getSession(true);
+            request.getSession().setAttribute("id", id);
+            response.sendRedirect("/todo/list");
+        } else {
+            response.sendRedirect("/login");
+        }
     }
 }

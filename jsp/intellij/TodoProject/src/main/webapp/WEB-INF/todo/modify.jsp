@@ -12,14 +12,14 @@
         <title>Modify</title>
     </head>
     <body>
-        <form action="/modify" method="post">
+        <form action="/todo/modify" method="post">
             <input type="hidden" name="key" value="${data.key}">
 
             <input type="checkbox" name="isCheck" ${data.check ? "checked" : ""}>
             <label>할 일 : </label> <input type="text" name="title" value="${data.title}"/> <br/>
             <label>날짜 : </label> <input type="date" name="date" value="${data.date}"/> <br/>
             <input type="submit" value="수정"/>
-            <input type="button" value="삭제" onclick="location.href='/remove?key=${data.key}'"/>
+            <input type="button" value="삭제" onclick="location.href='/todo/remove?key=${data.key}'"/>
         </form>
     </body>
 </html>

@@ -26,7 +26,7 @@
                     <td>
                         <input type="checkbox" name="key" value="${data.key}" ${data.check ? "checked" : ""} >
                     <td>
-                        <a href="/modify?key=${data.key}">
+                        <a href="/todo/modify?key=${data.key}">
                             ${data.title}
                         </a>
                     </td>
@@ -35,6 +35,6 @@
             </c:forEach>
             </tbody>
         </table>
-        <a href="/register">할 일 등록</a>
+        <a href="/todo/register">할 일 등록</a>
     </body>
 </html>

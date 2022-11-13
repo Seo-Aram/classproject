@@ -12,7 +12,7 @@
     </head>
     <body>
         <h1>Todo List 작성</h1>
-        <form method="post" action="/register">
+        <form method="post" action="/todo/register">
             <label>할 일 : </label> <input type="text" name="title"/> <br/>
             <label>날짜 : </label> <input type="date" name="date"/> <br/>
             <input type="submit" value="등록"/>
