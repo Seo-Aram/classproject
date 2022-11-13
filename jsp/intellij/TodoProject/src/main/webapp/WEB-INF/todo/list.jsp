@@ -26,7 +26,7 @@
                     <td>
                         <input type="checkbox" name="key" value="${data.key}" ${data.check ? "checked" : ""} >
                     <td>
-                        <a href="/read?key=${data.key}">
+                        <a href="/modify?key=${data.key}">
                             ${data.title}
                         </a>
                     </td>

@@ -1,4 +1,4 @@
-package todo.util;
+package util;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -22,8 +22,14 @@ public class ConnectionUtil {
         HikariConfig config = new HikariConfig();
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
         config.setJdbcUrl("jdbc:mysql://localhost:3306/project");
-        config.setUsername("scott");
-        config.setPassword("test_1234");
+        config.setUsername("root");
+        config.setPassword("admin");
+
+        /*ConfigUtil conf = ConfigUtil.getInstance();
+        config.setDriverClassName((String)conf.getConfig("jdbc"));
+        config.setJdbcUrl((String)conf.getConfig("dbUrl"));
+        config.setUsername((String)conf.getConfig("dbUser"));
+        config.setPassword((String)conf.getConfig("dbPassword"));*/
 
         config.addDataSourceProperty("cachePrepStmts", true);
         config.addDataSourceProperty("prepStmtCacheSize", 250);

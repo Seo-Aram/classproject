@@ -1,23 +1,28 @@
-package todo.controller;
+package controller.todo;
 
-import todo.module.TodoDataList;
+import lombok.extern.log4j.Log4j2;
+import module.todo.TodoData;
+import service.todo.TodoListService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
+@Log4j2
 @WebServlet(name = "TodoListController", value = "/list")
 public class TodoListController extends HttpServlet {
     @Override
-    public void init() throws ServletException {
-        // 데이터 초기화 하자
-        TodoDataList.getInstance().initializeData();
-    }
-
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("list", TodoDataList.getInstance().getList());
+        TodoListService service = new TodoListService();
+        List<TodoData> list = null;
+        try {
+            list = service.selectAllTodo();
+        } catch (Exception e) {
+            log.error(e);
+        }
+        request.setAttribute("list", list);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/todo/list.jsp");
         rd.forward(request, response);

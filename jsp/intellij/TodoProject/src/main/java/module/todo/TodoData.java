@@ -1,7 +1,12 @@
-package todo.module;
+package module.todo;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class TodoData {
-    private String key;
+    private long key;
     private String title;
     private String date;
     private boolean check;
@@ -9,7 +14,7 @@ public class TodoData {
     private static int index = 0;
 
     public TodoData(String title, String date) {
-        this.key = String.valueOf(index++) + System.currentTimeMillis();
+        this.key = Long.parseLong(String.valueOf(index++) + System.currentTimeMillis());
         this.title = title;
         this.date = date;
         this.check = false;
@@ -29,7 +34,7 @@ public class TodoData {
         this.check = check;
     }
 
-    public String getKey() {
+    public long getKey() {
         return key;
     }
 

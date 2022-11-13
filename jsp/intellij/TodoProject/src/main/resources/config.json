@@ -1,0 +1,6 @@
+{
+	"jdbc": "",
+	"dbUrl":"jdbc:mysql://localhost:3306/project",
+	"dbUser":"scott",
+	"dbPassword":"test_1234"
+}

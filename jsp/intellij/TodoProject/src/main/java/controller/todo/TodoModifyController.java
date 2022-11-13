@@ -1,21 +1,34 @@
-package todo.controller;
+package controller.todo;
 
-import todo.module.TodoData;
-import todo.module.TodoDataList;
+import lombok.extern.log4j.Log4j2;
+import module.todo.TodoData;
+import service.todo.TodoDataService;
+import service.todo.TodoModifyService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+@Log4j2
 @WebServlet(name = "TodoModifyController", value = "/modify")
 public class TodoModifyController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
-        String key = request.getParameter("key");
-        TodoData data = TodoDataList.getInstance().getTodoData(key);
+        long key = Long.parseLong(request.getParameter("key"));
+        TodoData data = null;
+
+        try {
+            TodoDataService service = new TodoDataService();
+            data = service.selectTodoData(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println();
+            log.error(e.getMessage());
+            log.error(e.getStackTrace());
+        }
 
         request.setAttribute("data", data);
 
@@ -27,12 +40,17 @@ public class TodoModifyController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
-        String key = request.getParameter("key");
+        long key = Long.parseLong(request.getParameter("key"));
         String title = request.getParameter("title");
         String date = request.getParameter("date");
         boolean isCheck = request.getParameter("isCheck") != null ? true : false;
 
-        TodoDataList.getInstance().updateTodoData(key, title, date, isCheck);
+        try {
+            TodoModifyService service = new TodoModifyService();
+            service.modifyTodoData(new TodoData(key, title, date, isCheck));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         RequestDispatcher rd = request.getRequestDispatcher("/list");
         rd.forward(request, response);

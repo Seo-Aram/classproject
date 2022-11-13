@@ -1,13 +1,14 @@
-package todo.controller;
+package controller.todo;
 
-import todo.module.TodoData;
-import todo.module.TodoDataList;
+import lombok.extern.log4j.Log4j2;
+import service.todo.TodoInsertService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+@Log4j2
 @WebServlet(name = "TodoRegisterController", value = "/register")
 public class TodoRegisterController extends HttpServlet {
     @Override
@@ -22,7 +23,14 @@ public class TodoRegisterController extends HttpServlet {
         String title = request.getParameter("title");
         String date = request.getParameter("date");
 
-        TodoDataList.getInstance().insertTodoData(new TodoData(title, date));
+        try{
+            TodoInsertService service = new TodoInsertService();
+            service.insertTodo(title, date);
+        } catch (Exception e) {
+            log.error(e);
+        }
+
+        log.debug(title, date);
 
         response.sendRedirect("/list");
     }

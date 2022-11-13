@@ -1,7 +1,4 @@
-package todo.controller;
-
-import todo.module.TodoData;
-import todo.module.TodoDataList;
+package controller.todo;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,11 +10,6 @@ public class TodoReadController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-
-        String key = request.getParameter("key");
-        TodoData data = TodoDataList.getInstance().getTodoData(key);
-
-        request.setAttribute("data", data);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/todo/read.jsp");
         rd.forward(request, response);
