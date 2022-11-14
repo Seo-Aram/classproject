@@ -34,8 +34,7 @@ public class LoginController extends HttpServlet {
         }
 
         if(isSuccess) {
-            request.getSession(true);
-            request.getSession().setAttribute("id", id);
+            request.getSession(true).setAttribute("id", id);
             response.sendRedirect("/todo/list");
         } else {
             response.sendRedirect("/login");
