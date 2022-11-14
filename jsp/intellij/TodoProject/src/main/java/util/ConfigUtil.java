@@ -17,10 +17,9 @@ import java.util.Set;
  */
 @Log4j2
 public class ConfigUtil {
-    private Map<String, Object> config;
-    private static ConfigUtil instance;
+    private static Map<String, Object> config;
 
-    private ConfigUtil() {
+    static {
         config = new HashMap<>();
 
         JSONParser parser = new JSONParser();
@@ -36,21 +35,17 @@ public class ConfigUtil {
 
             Set<String> keys = jsonConfig.keySet();
             for(String key : keys) {
-                this.config.put(key, jsonConfig.get(key));
+                log.info(jsonConfig.get(key));
+                config.put(key, jsonConfig.get(key));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    public static ConfigUtil getInstance() {
-        if(instance == null) {
-            instance = new ConfigUtil();
-        }
-        return instance;
+    private ConfigUtil() {
     }
 
-    public String getConfig(String key) {
+    public static String getConfig(String key) {
         return (String)config.get(key);
     }
 }
