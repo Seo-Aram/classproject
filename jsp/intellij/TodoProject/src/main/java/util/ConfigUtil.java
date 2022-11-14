@@ -31,13 +31,14 @@ public class ConfigUtil {
             @Cleanup FileReader fr = new FileReader(loader.getResource("config.json").getFile());
 
             Object obj = parser.parse(fr);
-            JSONObject jsonConfig = (JSONObject) obj;
+            config = (JSONObject) obj;
+            /*JSONObject jsonConfig = (JSONObject) obj;
 
             Set<String> keys = jsonConfig.keySet();
             for(String key : keys) {
                 log.info(jsonConfig.get(key));
                 config.put(key, jsonConfig.get(key));
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
