@@ -6,12 +6,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -54,7 +50,7 @@ public class ConfigUtil {
         return instance;
     }
 
-    public Object getConfig(String key) {
-        return config.get(key);
+    public String getConfig(String key) {
+        return (String)config.get(key);
     }
 }

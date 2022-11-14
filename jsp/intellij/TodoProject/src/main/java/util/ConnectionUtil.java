@@ -26,10 +26,10 @@ public class ConnectionUtil {
         config.setPassword("admin");*/
 
         ConfigUtil conf = ConfigUtil.getInstance();
-        config.setDriverClassName((String)conf.getConfig("jdbc"));
-        config.setJdbcUrl((String)conf.getConfig("dbUrl"));
-        config.setUsername((String)conf.getConfig("dbUser"));
-        config.setPassword((String)conf.getConfig("dbPassword"));
+        config.setDriverClassName(conf.getConfig("jdbc"));
+        config.setJdbcUrl(conf.getConfig("dbUrl"));
+        config.setUsername(conf.getConfig("dbUser"));
+        config.setPassword(conf.getConfig("dbPassword"));
 
         config.addDataSourceProperty("cachePrepStmts", true);
         config.addDataSourceProperty("prepStmtCacheSize", 250);

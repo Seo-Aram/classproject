@@ -1,6 +1,6 @@
 package service.sign;
 
-import controller.dao.SignDao;
+import dao.SignDao;
 import util.ConnectionUtil;
 
 import java.sql.Connection;
