@@ -21,10 +21,10 @@ public class ConnectionUtil {
     private ConnectionUtil() {
         HikariConfig config = new HikariConfig();
 
-        config.setDriverClassName(ConfigUtil.getConfig("jdbc"));
-        config.setJdbcUrl(ConfigUtil.getConfig("dbUrl"));
-        config.setUsername(ConfigUtil.getConfig("dbUser"));
-        config.setPassword(ConfigUtil.getConfig("dbPassword"));
+        config.setDriverClassName((String)ConfigUtil.getConfig("jdbc"));
+        config.setJdbcUrl((String)ConfigUtil.getConfig("dbUrl"));
+        config.setUsername((String)ConfigUtil.getConfig("dbUser"));
+        config.setPassword((String)ConfigUtil.getConfig("dbPassword"));
 
         config.addDataSourceProperty("cachePrepStmts", true);
         config.addDataSourceProperty("prepStmtCacheSize", 250);

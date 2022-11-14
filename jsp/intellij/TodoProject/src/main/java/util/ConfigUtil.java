@@ -46,7 +46,7 @@ public class ConfigUtil {
     private ConfigUtil() {
     }
 
-    public static String getConfig(String key) {
-        return (String)config.get(key);
+    public static Object getConfig(String key) {
+        return config.get(key);
     }
 }
