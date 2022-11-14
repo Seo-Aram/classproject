@@ -13,12 +13,22 @@ import java.io.IOException;
 public class TodoRegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request.getSession(false) == null) {
+            response.sendRedirect("/login");
+            return;
+        }
+
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/todo/register.jsp");
         rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request.getSession(false) == null) {
+            response.sendRedirect("/login");
+            return;
+        }
+
         request.setCharacterEncoding("UTF-8");
         String title = request.getParameter("title");
         String date = request.getParameter("date");

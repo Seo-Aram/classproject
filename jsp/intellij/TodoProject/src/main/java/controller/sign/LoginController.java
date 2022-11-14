@@ -11,8 +11,7 @@ import java.io.IOException;
 public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession(false) != null &&
-                request.getSession().getAttribute("id") != null) {
+        if(request.getSession(false) != null && request.getSession().getAttribute("id") != null) {
             response.sendRedirect("/todo/list");
         } else {
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/sign/login.jsp");
