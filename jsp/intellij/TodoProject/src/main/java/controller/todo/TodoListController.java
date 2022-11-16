@@ -15,10 +15,6 @@ import java.util.List;
 public class TodoListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession(false) == null) {
-            response.sendRedirect("/login");
-            return;
-        }
         TodoListService service = new TodoListService();
         List<TodoData> list = null;
         try {

@@ -11,11 +11,6 @@ import java.io.IOException;
 public class TodoRemoveController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession(false) == null) {
-            response.sendRedirect("/login");
-            return;
-        }
-
         String sKey = request.getParameter("key");
         if(sKey != null ){
             long key = Long.parseLong(request.getParameter("key"));
@@ -33,11 +28,6 @@ public class TodoRemoveController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession(false) == null) {
-            response.sendRedirect("/login");
-            return;
-        }
-
         long key = Long.parseLong(request.getParameter("key"));
 
         try {

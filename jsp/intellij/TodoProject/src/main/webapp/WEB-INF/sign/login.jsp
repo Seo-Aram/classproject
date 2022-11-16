@@ -11,7 +11,7 @@
       <title>Login</title>
   </head>
   <body>
-    <form action="/login" method="post">
+    <form action="/sign/signIn" method="post">
       <label>ID: </label> <input type="text" name="id"/>
       <label>Password: </label> <input type="password" name="password"/>
       <input type="submit" value="login"/>
