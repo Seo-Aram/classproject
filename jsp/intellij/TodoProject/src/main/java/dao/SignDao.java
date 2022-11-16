@@ -1,6 +1,7 @@
 package dao;
 
 import lombok.Cleanup;
+import module.Member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,5 +21,25 @@ public class SignDao {
         if(rs.next()) result = true;
 
         return result;
+    }
+
+    public Member signInByUUID(Connection conn, String uuid) throws SQLException {
+        Member member = null;
+
+        String query = "select * from todo_member where uuid = ?";
+        @Cleanup PreparedStatement pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, uuid);
+        @Cleanup ResultSet rs = pstmt.executeQuery();
+
+        if(rs.next()) {
+            member = Member.builder()
+                    .id(rs.getString("id"))
+                    .idx(rs.getLong("idx"))
+                    .pw(rs.getString("password"))
+                    .uuid(rs.getString("uuid"))
+                    .build();
+        }
+
+        return member;
     }
 }
