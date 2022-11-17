@@ -1,7 +1,7 @@
 package com.todo.controller.todo;
 
 import com.todo.module.todo.TodoData;
-import com.todo.service.todo.TodoListService;
+import com.todo.service.todo.TodoService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,13 +14,18 @@ import java.util.List;
 @Controller
 @RequestMapping("/todo/list")
 public class TodoListController {
+    private final TodoService service;
+
+    public TodoListController(TodoService service) {
+        this.service = service;
+    }
 
     @GetMapping()
     public String getTodoListPage(Model model){
         log.info("test");
 
-        TodoListService service = new TodoListService();
         List<TodoData> list = null;
+
         try {
             list = service.selectAllTodo();
         } catch (Exception e) {

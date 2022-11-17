@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
-public class TodoListDao {
+public class TodoListDao implements ITodoDao {
     public void insertTodo(Connection conn, String title, String date) throws SQLException {
         String query = "insert into todo_list(title, date) value(?, ?)";
         @Cleanup PreparedStatement pstmt = conn.prepareStatement(query);
