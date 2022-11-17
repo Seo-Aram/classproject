@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.UUID;
 
-@WebFilter(filterName = "SignCheckFilter", urlPatterns = "/sign/*")
+@WebFilter(filterName = "SignCheckFilter")
 public class SignCheckFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
@@ -31,13 +32,21 @@ public class SignCheckFilter implements Filter {
 
             if(cookie != null) {
                 Member member = null;
+                SignInService signInService = new SignInService();
                 try {
-                    member = new SignInService().signInByUUID(cookie.getValue());
+                    member = signInService.signInByUUID(cookie.getValue());
 
                     if(member != null) {
                         session.setAttribute("loginInfo", member);
 
                         //cookie에 uuid갱신하여 추가해주기
+                        UUID uuid = UUID.randomUUID();
+                        signInService.updateUUIDByIdx(uuid.toString(), member.getIdx());
+
+                        cookie.setValue(uuid.toString());
+                        cookie.setMaxAge(60*60*24);
+                        res.addCookie(cookie);
+
                     }
                 } catch (Exception e) {
                     //throw new RuntimeException(e);

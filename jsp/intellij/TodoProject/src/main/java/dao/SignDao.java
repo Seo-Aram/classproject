@@ -42,4 +42,13 @@ public class SignDao {
 
         return member;
     }
+
+    public void updateUUIDByIdx(Connection conn, long idx, String uuid) throws SQLException {
+        String query = "update todo_member set uuid = ? where idx = ?";
+        @Cleanup PreparedStatement pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, uuid);
+        pstmt.setLong(2, idx);
+        pstmt.executeUpdate();
+
+    }
 }

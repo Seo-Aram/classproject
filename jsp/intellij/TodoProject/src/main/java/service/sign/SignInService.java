@@ -21,4 +21,10 @@ public class SignInService {
 
         return dao.signInByUUID(conn, uuid);
     }
+
+    public void updateUUIDByIdx(String uuid, long idx) throws Exception {
+        Connection conn = ConnectionUtil.getInstance().getConnection();
+
+        dao.updateUUIDByIdx(conn, idx, uuid);
+    }
 }
