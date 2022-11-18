@@ -13,9 +13,9 @@
     </head>
     <body>
         <form action="/todo/modify" method="post">
-            <input type="hidden" name="key" value="${data.key}">
+            <input type="hidden" name="key" value="${data.key}"/>
 
-            <input type="checkbox" name="isCheck" ${data.check ? "checked" : ""}>
+            <input type="checkbox" name="finished" ${data.finished ? "checked" : ""}>
             <label>할 일 : </label> <input type="text" name="title" value="${data.title}"/> <br/>
             <label>날짜 : </label> <input type="date" name="date" value="${data.date}"/> <br/>
             <input type="submit" value="수정"/>

@@ -4,6 +4,7 @@ import com.todo.dao.ITodoDao;
 import com.todo.module.todo.TodoData;
 import com.todo.util.ConnectionUtil;
 import lombok.Cleanup;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
@@ -11,6 +12,7 @@ import java.util.List;
 
 
 @Service
+@Log4j2
 public class TodoService {
 
     private final ITodoDao dao;

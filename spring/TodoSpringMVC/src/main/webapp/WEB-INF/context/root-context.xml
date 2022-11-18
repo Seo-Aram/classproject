@@ -6,9 +6,4 @@
 
     <context:annotation-config />
 
-    <bean id="todoDao" class="com.todo.dao.TodoListDao">
-    </bean>
-    <bean id="todoService" class="com.todo.service.todo.TodoService" scope="singleton">
-    </bean>
-
 </beans>

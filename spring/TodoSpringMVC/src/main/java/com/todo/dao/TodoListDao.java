@@ -3,6 +3,7 @@ package com.todo.dao;
 import com.todo.module.todo.TodoData;
 import lombok.Cleanup;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
+@Repository
 public class TodoListDao implements ITodoDao {
     public void insertTodo(Connection conn, String title, String date) throws SQLException {
         String query = "insert into todo_list(title, date) value(?, ?)";
@@ -44,7 +46,7 @@ public class TodoListDao implements ITodoDao {
 
         TodoData data = null;
         if(rs.next()) {
-            data = new TodoData(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4));
+            data = new TodoData(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getBoolean(4));
         }
 
         return data;
@@ -56,7 +58,7 @@ public class TodoListDao implements ITodoDao {
         @Cleanup PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, data.getTitle());
         pstmt.setString(2, data.getDate());
-        pstmt.setBoolean(3, data.isCheck());
+        pstmt.setBoolean(3, data.isFinished());
         pstmt.setLong(4, data.getKey());
 
         pstmt.executeUpdate();

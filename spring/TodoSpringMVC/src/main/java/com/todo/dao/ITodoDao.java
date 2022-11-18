@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-@Repository
 public interface ITodoDao {
     public void insertTodo(Connection conn, String title, String date) throws SQLException;
 
