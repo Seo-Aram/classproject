@@ -3,6 +3,7 @@ package com.todo.controller.todo;
 import com.todo.module.todo.TodoData;
 import com.todo.service.todo.TodoService;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +12,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/todo/modify")
 public class TodoModifyController {
-    private final TodoService service;
+    @Autowired
+    private TodoService service;
 
-    public TodoModifyController(TodoService service) {
+    /*public TodoModifyController(TodoService service) {
         this.service = service;
-    }
+    }*/
 
     @GetMapping
     public void getTodoModifyPage(Model model, @RequestParam(value="key", required = false) long key){
