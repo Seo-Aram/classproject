@@ -2,5 +2,7 @@
 	"jdbc": "com.mysql.cj.jdbc.Driver",
 	"dbUrl":"jdbc:mysql://localhost:3306/project",
 	"dbUser":"root",
-	"dbPassword":"admin"
+	"dbPassword":"admin",
+	"uploadURI" : "/upload/files",
+	"fileSaveDir" : "C:\\Users\\LG\\Documents\\himidea_fullstack\\dev\\GitHub\\classproject\\spring\\TodoSpringMVC\\src\\main\\webapp\\resources\\profile"
 }
