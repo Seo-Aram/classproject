@@ -34,7 +34,7 @@
 </c:if>
 <c:forEach var="data" items="${list}">
                 <label class="list-group-item d-flex gap-3">
-                    <input class="form-check-input flex-shrink-0" type="checkbox" value="${data.key}" ${data.finished ? "checked" : ""} style="font-size: 1.375em;">
+                    <input class="form-check-input flex-shrink-0" disabled type="checkbox" value="${data.key}" ${data.finished ? "checked" : ""} style="font-size: 1.375em;">
                     <span class="pt-1 form-checked-content">
                         <strong><a href="/todo/modify?key=${data.key}">${data.title}</a></strong>
                         <small class="d-block text-muted">

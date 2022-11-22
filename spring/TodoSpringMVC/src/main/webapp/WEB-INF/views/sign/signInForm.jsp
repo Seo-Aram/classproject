@@ -15,7 +15,7 @@
     </head>
     <body>
         <main class="form-signin w-100 m-auto">
-            <form action="/sign/in" method="post">
+            <form action="/sign/in" method="post" id="signin">
                 <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
                 <div class="form-floating">
@@ -32,7 +32,7 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                <button class="w-100 btn btn-lg btn-primary" type="button" id="sign">Sign in</button>
                 <p class="mb-3 text-muted"> <a href="/sign/up">Sign up</a> </p>
                 <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
             </form>
@@ -48,4 +48,25 @@
         alert("회원가입에 성공하였습니다.");
     </script>
 </c:if>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('#sign').addEventListener('click', (event) =>{
+                const userId = document.querySelector('#floatingInput');
+                const password = document.querySelector('#floatingPassword');
+
+                if(userId.value == '' || userId.value.trim() == '') {
+                    userId.focus();
+                    return;
+                }
+
+                if(password.value == '' || password.value.trim() == '') {
+                    password.focus();
+                    return;
+                }
+
+                document.querySelector('#signin').submit();
+
+            });
+        });
+    </script>
 </html>

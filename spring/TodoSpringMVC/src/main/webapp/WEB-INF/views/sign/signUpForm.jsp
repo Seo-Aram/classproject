@@ -15,11 +15,11 @@
   <body>
 
     <main class="form-signin w-100 m-auto">
-      <form action="/sign/up" method="post" enctype="multipart/form-data">
+      <form action="/sign/up" method="post" enctype="multipart/form-data" id="signup">
         <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="UserID" name="user_id">
+          <input type="text" class="form-control" id="floatingInput" placeholder="UserID" name="userId">
           <label for="floatingInput">ID</label>
         </div>
         <div class="form-floating">
@@ -35,9 +35,30 @@
         <div class="mb-3">
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+        <button class="w-100 btn btn-lg btn-primary" type="button" id="up">Sign up</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
       </form>
     </main>
   </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('#up').addEventListener('click', (event) =>{
+        const userId = document.querySelector('#floatingInput');
+        const password = document.querySelector('#floatingPassword');
+
+        if(userId.value == '' || userId.value.trim() == '') {
+          userId.focus();
+          return;
+        }
+
+        if(password.value == '' || password.value.trim() == '') {
+          password.focus();
+          return;
+        }
+
+        document.querySelector('#signup').submit();
+
+      });
+    });
+  </script>
 </html>

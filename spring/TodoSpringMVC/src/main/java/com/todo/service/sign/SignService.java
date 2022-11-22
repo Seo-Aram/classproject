@@ -26,6 +26,12 @@ public class SignService {
         return dao.signInByIdPw(conn, id, pw);
     }
 
+    public void updateProfileUrl(String url, String userId) throws Exception {
+        @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
+
+        dao.updateProfileImg(conn, url, userId);
+    }
+
     public int signUp(MemberRegRequest regRequest, HttpServletRequest request) throws Exception {
         @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
 
