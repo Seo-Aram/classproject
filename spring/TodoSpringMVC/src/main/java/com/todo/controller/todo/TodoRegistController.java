@@ -26,8 +26,8 @@ public class TodoRegistController {
     }
 
     @PostMapping
-    public String postTodoRegisterPage(@RequestParam(value="title", required = false) String title,
-                                       @RequestParam(value="date", required = false) String date,
+    public String postTodoRegisterPage(@RequestParam(value="todo_title", required = false) String title,
+                                       @RequestParam(value="todo_date", required = false) String date,
                                        HttpServletRequest request){
 
         LoginInfo loginInfo = (LoginInfo)request.getSession().getAttribute("loginInfo");

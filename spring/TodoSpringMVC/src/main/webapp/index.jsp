@@ -3,11 +3,11 @@
 <html>
 <head>
     <title>JSP - Hello World</title>
+    <link rel="stylesheet" type="text/css" href="/resources/bootstrap/css/bootstrap.min.css"/>
 </head>
-<body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
-</body>
+    <body>
+        <%@include file="WEB-INF/views/parts/header.jsp"%>
+        <%@include file="WEB-INF/views/parts/side.jsp"%>
+        <%@include file="WEB-INF/views/parts/footer.jsp"%>
+    </body>
 </html>

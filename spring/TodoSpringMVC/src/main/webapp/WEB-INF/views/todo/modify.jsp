@@ -10,16 +10,69 @@
 <html>
     <head>
         <title>Modify</title>
+        <link rel="stylesheet" type="text/css" href="/resources/css/list-group.css"/>
+        <link rel="stylesheet" type="text/css" href="/resources/css/base.css"/>
+        <link rel="stylesheet" type="text/css" href="/resources/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/resources/css/form.css"/>
     </head>
     <body>
-        <form action="/todo/modify" method="post">
-            <input type="hidden" name="key" value="${data.key}"/>
+    <%@include file="../parts/header.jsp"%>
+        <%@include file="../parts/side.jsp"%>
+        <div class="box">
+            <div class="list-group w-auto">
+                <main class="form-todo w-100 m-auto" style="max-width: 460px">
+                    <form action="/todo/modify" method="post" id="modify">
+                        <input type="hidden" name="key" value="${data.key}"/>
+                        <h1 class="h3 mb-3 fw-normal">Modify Todo</h1>
 
-            <input type="checkbox" name="finished" ${data.finished ? "checked" : ""}>
-            <label>할 일 : </label> <input type="text" name="title" value="${data.title}"/> <br/>
-            <label>날짜 : </label> <input type="date" name="date" value="${data.date}"/> <br/>
-            <input type="submit" value="수정"/>
-            <input type="button" value="삭제" onclick="location.href='/todo/remove?key=${data.key}'"/>
-        </form>
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" name="finished" ${data.finished ? "checked" : ""}> Is Finished
+                            </label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingTitle" placeholder="title" name="title" value="${data.title}">
+                            <label for="floatingTitle">todo</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="floatingDate" placeholder="date" name="date" value="${data.date}">
+                            <label for="floatingDate">date</label>
+                        </div>
+
+                        <div class="checkbox mb-3">
+                        </div>
+                        <button class="btn btn-lg btn-primary" type="button" id="modifyTodo">수정</button>
+                        <button class="btn btn-lg btn-danger" type="button" id="removeTodo" style="float: right">삭제</button>
+                    </form>
+                </main>
+            </div>
+        </div>
+        <%@include file="../parts/footer.jsp"%>
     </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('#modifyTodo').addEventListener('click', (event) =>{
+                const todoTitle = document.querySelector('#floatingTitle');
+                const todoDate = document.querySelector('#floatingDate');
+
+                if(todoTitle.value == '' || todoTitle.value.trim() == '') {
+                    todoTitle.focus();
+                    return;
+                }
+
+                if(todoDate.value == null || todoDate.value == '' || todoDate.value.trim() == '') {
+                    todoDate.focus();
+                    return;
+                }
+
+                document.querySelector('#modify').submit();
+
+            });
+
+            document.querySelector('#removeTodo').addEventListener('click', (event) => {
+                location.href='/todo/remove?key=${data.key}';
+            });
+        });
+    </script>
 </html>

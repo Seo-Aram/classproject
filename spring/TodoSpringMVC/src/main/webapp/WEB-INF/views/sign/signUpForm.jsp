@@ -26,6 +26,7 @@
           <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
           <label for="floatingPassword">Password</label>
         </div>
+
         <div class="form-group">
           <label for="formFile" class="form-label mt-4">Profile Image</label>
           <input class="form-control" type="file" id="formFile" name="profileImg" accept=".gif, .jpg, .png">
