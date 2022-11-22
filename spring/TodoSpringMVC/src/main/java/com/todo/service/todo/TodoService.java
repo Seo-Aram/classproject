@@ -1,6 +1,7 @@
 package com.todo.service.todo;
 
 import com.todo.dao.ITodoDao;
+import com.todo.module.sign.LoginInfo;
 import com.todo.module.todo.TodoData;
 import com.todo.util.ConnectionUtil;
 import lombok.Cleanup;
@@ -21,33 +22,33 @@ public class TodoService {
         this.dao = dao;
     }
 
-    public List<TodoData> selectAllTodo() throws Exception {
+    public List<TodoData> selectAllTodo(LoginInfo loginInfo) throws Exception {
         @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
 
-        return dao.selectTodoList(conn);
+        return dao.selectTodoList(conn, loginInfo);
     }
 
-    public TodoData selectTodoDataByKey(long key) throws Exception {
+    public TodoData selectTodoDataByKey(long key, LoginInfo loginInfo) throws Exception {
         @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
 
-        return dao.selectData(conn, key);
+        return dao.selectData(conn, key, loginInfo);
     }
 
-    public void removeTodoDataByKey(long key) throws Exception {
+    public void removeTodoDataByKey(long key, LoginInfo loginInfo) throws Exception {
         @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
 
-        dao.deleteData(conn, key);
+        dao.deleteData(conn, key, loginInfo);
     }
 
-    public void addTodoData(String title, String date) throws Exception {
+    public void addTodoData(String title, String date, LoginInfo loginInfo) throws Exception {
         @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
 
-        dao.insertTodo(conn, title, date);
+        dao.insertTodo(conn, title, date, loginInfo);
     }
 
-    public void modifyTodoData(TodoData data) throws Exception {
+    public void modifyTodoData(TodoData data, LoginInfo loginInfo) throws Exception {
         @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
 
-        dao.updateData(conn, data);
+        dao.updateData(conn, data, loginInfo);
     }
 }

@@ -1,11 +1,14 @@
 package com.todo.controller.todo;
 
+import com.todo.module.sign.LoginInfo;
 import com.todo.service.todo.TodoService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Log4j2
 @Controller
@@ -19,10 +22,13 @@ public class TodoRemoveController {
     }
 
     @GetMapping()
-    public String getTodoRemovePage(@RequestParam(name="key", required = true) long key) {
+    public String getTodoRemovePage(@RequestParam(name="key", required = true) long key,
+                                    HttpServletRequest request) {
+
+        LoginInfo loginInfo = (LoginInfo)request.getSession().getAttribute("loginInfo");
 
         try {
-            service.removeTodoDataByKey(key);
+            service.removeTodoDataByKey(key, loginInfo);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

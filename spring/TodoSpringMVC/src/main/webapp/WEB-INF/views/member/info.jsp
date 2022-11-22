@@ -16,8 +16,8 @@
             <table>
                 <tr>
                     <td colspan="2">
+                        <img src="/resources/profile/${loginInfo.profileUrl != '' ? loginInfo.profileUrl : "default.png"}"/>
                         <c:if test="${loginInfo.profileUrl != ''}">
-                            <img src="/resources/profile/${loginInfo.profileUrl}"/>
                         </c:if>
                     </td>
                 </tr>

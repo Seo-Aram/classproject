@@ -8,31 +8,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-      <title>Title</title>
+      <title>회원가입</title>
+      <link rel="stylesheet" type="text/css" href="/resources/bootstrap/css/bootstrap.min.css"/>
+      <link rel="stylesheet" type="text/css" href="/resources/css/sign.css"/>
   </head>
   <body>
-    <form action="/sign/up" method="post" enctype="multipart/form-data">
-      <table>
-        <tr>
-          <td>id</td>
-          <td><input type="text" name="userId"/></td>
-        </tr>
 
-        <tr>
-          <td>pw</td>
-          <td><input type="password" name="password"/></td>
-        </tr>
+    <main class="form-signin w-100 m-auto">
+      <form action="/sign/up" method="post" enctype="multipart/form-data">
+        <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
 
-        <tr>
-          <td>프로필</td>
-          <td><input type="file" name="profileImg" accept=".gif, .jpg, .png"/></td>
-        </tr>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="UserID" name="user_id">
+          <label for="floatingInput">ID</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="form-group">
+          <label for="formFile" class="form-label mt-4">Profile Image</label>
+          <input class="form-control" type="file" id="formFile" name="profileImg" accept=".gif, .jpg, .png">
+        </div>
 
-        <tr>
-          <td></td>
-          <td><input type="submit" value="가입"/></td>
-        </tr>
-      </table>
-    </form>
+        <div class="mb-3">
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+      </form>
+    </main>
   </body>
 </html>
