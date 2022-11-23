@@ -3,6 +3,7 @@ package com.todo.controller.sign;
 import com.todo.module.sign.Member;
 import com.todo.service.sign.SignService;
 import com.todo.util.ConfigUtil;
+import com.todo.util.Util;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,10 +62,17 @@ public class SignInController {
                 request.getSession(true).setAttribute("loginInfo", member.toLoginInfo());
 
                 if(isRemember) {
-                    Cookie cookie = new Cookie("loginInfo", uuid.toString());
+                    Cookie cookie = Util.findCookie(request.getCookies(), "loginInfo");
+                    if(cookie == null) {
+                        cookie = new Cookie("loginInfo", uuid.toString());
+                    } else {
+                        cookie.setValue(uuid.toString());
+                    }
                     cookie.setPath("/");
                     cookie.setMaxAge(60 * 60 * 24);
                     response.addCookie(cookie);
+
+                    log.warn("cookie create");
                 }
 
                 return "redirect:/todo/list";

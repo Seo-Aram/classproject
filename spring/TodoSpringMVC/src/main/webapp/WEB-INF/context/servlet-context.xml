@@ -51,7 +51,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/sign/**"/>
-            <bean class="com.todo.interceptor.AutoLoginInterceptor" />
+            <bean class="com.spring.interceptor.AutoLoginInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
 

@@ -1,12 +1,10 @@
-package com.todo.filter;
+package com.spring.filter;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.filter.GenericFilterBean;
+import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +12,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Log4j2
-@WebFilter(value={"/todo/*", "/member/*"})
-public class AuthCheckFilter extends GenericFilterBean {
+@WebFilter("/sign/*")
+public class SignInSessionFilter extends GenericFilterBean {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -23,9 +21,8 @@ public class AuthCheckFilter extends GenericFilterBean {
         HttpSession session = httpRequest.getSession(false);
 
         log.info(session);
-
-        if(session == null || session.getAttribute("loginInfo") == null) {
-            httpResponse.sendRedirect("/sign/in");
+        if(session != null && session.getAttribute("loginInfo") != null) {
+            httpResponse.sendRedirect("/todo/list");
             return;
         }
 

@@ -1,4 +1,4 @@
-package com.todo.interceptor;
+package com.spring.interceptor;
 
 import com.todo.module.sign.Member;
 import com.todo.service.sign.SignService;
@@ -25,7 +25,7 @@ public class AutoLoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Cookie cookie = Util.findCookie(request.getCookies(), "loginInfo");
 
-        if(cookie != null && !cookie.getValue().isEmpty()) {
+        if(cookie != null && cookie.getValue() != null) {
             log.info(cookie.getValue());
 
             Member member = service.signInByUUID(cookie.getValue());
@@ -48,11 +48,15 @@ public class AutoLoginInterceptor implements HandlerInterceptor {
                 cookie.setMaxAge(60 * 60 * 24);
                 cookie.setValue(uuid.toString());
                 response.addCookie(cookie);
+
                 log.info("auto login Success...");
-            } else {
-                cookie.setMaxAge(0);
-                response.addCookie(cookie);
+                return true;
             }
+
+            cookie.setMaxAge(0);
+            cookie.setValue(null);
+            response.addCookie(cookie);
+            log.info("auto login Fail");
         }
 
         return true;

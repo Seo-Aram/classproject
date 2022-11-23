@@ -1,6 +1,5 @@
-package com.todo.interceptor;
+package com.spring.interceptor;
 
-import lombok.extern.log4j.Log4j2;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -8,19 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@Log4j2
-public class SignInSessionInterceptor implements HandlerInterceptor {
+public class AuthCheckInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
         HttpSession session = request.getSession(false);
-
-        log.info(session);
-        if(session != null && session.getAttribute("loginInfo") != null) {
-            response.sendRedirect("/todo/list");
-            return true;
+        if(session == null || session.getAttribute("loginInfo") == null) {
+            response.sendRedirect("/sign/in");
+            return false;
         }
-
         return true;
     }
 
