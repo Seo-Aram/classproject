@@ -14,7 +14,7 @@
     <context:component-scan base-package="com.todo"></context:component-scan>
 
     <mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
-    <mvc:resources mapping="/upload/files/**" location="/upload/files/"></mvc:resources>
+    <!--<mvc:resources mapping="/upload/files/**" location="/upload/files/"></mvc:resources>-->
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -44,5 +44,16 @@
             <bean class="com.todo.interceptor.SignInSessionInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <bean id="conversionService2" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="com.todo.util.formatter.CheckBoxFormatter"/>
+                <!-- 내가 만든 포맷 컨버터 추가 등록-->
+            </set>
+        </property>
+    </bean>
+
+    <mvc:annotation-driven conversion-service="conversionService2"/>
 </beans>
 

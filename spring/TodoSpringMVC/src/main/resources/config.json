@@ -4,5 +4,6 @@
 	"dbUser":"root",
 	"dbPassword":"admin",
 	"uploadURI" : "/upload/files",
+	"resourcesURI": "/resouces/profile/",
 	"fileSaveDir" : "C:\\Users\\LG\\Documents\\himidea_fullstack\\dev\\GitHub\\classproject\\spring\\TodoSpringMVC\\src\\main\\webapp\\resources\\profile"
 }
