@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.util.UUID;
 
 @Log4j2
 @Controller
@@ -33,12 +36,14 @@ public class SignInController {
     public String postLogin(
             @RequestParam("user_id") String userID,
             @RequestParam("password") String password,
-            HttpServletRequest request
+            @RequestParam(name="remember", required = false) boolean isRemember,
+            HttpServletRequest request,
+            HttpServletResponse response
     ){
         try {
             Member member = service.signInByIdPw(userID, password);
 
-            log.info(member);
+            log.info(isRemember);
 
             if(member != null) {
 
@@ -49,7 +54,18 @@ public class SignInController {
                         service.updateProfileUrl("", userID);
                     }
                 }
+                UUID uuid = UUID.randomUUID();
+                member.setUuid(uuid.toString());
+                service.updateUUID(member.getUuid(), member.getId());
+
                 request.getSession(true).setAttribute("loginInfo", member.toLoginInfo());
+
+                if(isRemember) {
+                    Cookie cookie = new Cookie("loginInfo", uuid.toString());
+                    cookie.setPath("/");
+                    cookie.setMaxAge(60 * 60 * 24);
+                    response.addCookie(cookie);
+                }
 
                 return "redirect:/todo/list";
             }

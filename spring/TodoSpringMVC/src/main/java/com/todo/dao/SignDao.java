@@ -36,6 +36,27 @@ public class SignDao {
         return member;
     }
 
+    public Member signInByUUID(Connection conn, String uuid) throws SQLException {
+        Member member = null;
+
+        String sql = "select * from todo_member where uuid = ?";
+        @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, uuid);
+        @Cleanup ResultSet rs = pstmt.executeQuery();
+
+        if(rs.next()) {
+            member = new Member(
+                    rs.getLong("idx"),
+                    rs.getString("uuid"),
+                    rs.getString("user_id"),
+                    rs.getString("password"),
+                    rs.getString("profile_url")
+            );
+        }
+
+        return member;
+    }
+
     public int signUp(Connection conn, Member member) throws SQLException {
         String sql = "insert into todo_member(user_id, password) values(?, ?)";
         @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -49,6 +70,15 @@ public class SignDao {
         String sql = "update todo_member set profile_url = ? where user_id = ?";
         @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, imgURI);
+        pstmt.setString(2, userId);
+
+        return pstmt.executeUpdate();
+    }
+
+    public int updateUUID(Connection conn, String uuid, String userId) throws SQLException {
+        String sql = "update todo_member set uuid = ? where user_id = ?";
+        @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, uuid);
         pstmt.setString(2, userId);
 
         return pstmt.executeUpdate();

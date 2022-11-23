@@ -30,6 +30,7 @@
         </property>
     </bean>
 
+<!--
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/todo/**"/>
@@ -37,11 +38,20 @@
             <bean class="com.todo.interceptor.AuthCheckInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
-    
+-->
+
+<!--
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/sign/**"/>
             <bean class="com.todo.interceptor.SignInSessionInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/sign/**"/>
+            <bean class="com.todo.interceptor.AutoLoginInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
 

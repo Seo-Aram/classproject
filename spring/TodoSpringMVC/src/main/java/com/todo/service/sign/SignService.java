@@ -26,10 +26,22 @@ public class SignService {
         return dao.signInByIdPw(conn, id, pw);
     }
 
+    public Member signInByUUID(String uuid) throws Exception {
+        @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
+
+        return dao.signInByUUID(conn, uuid);
+    }
+
     public void updateProfileUrl(String url, String userId) throws Exception {
         @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
 
         dao.updateProfileImg(conn, url, userId);
+    }
+
+    public void updateUUID(String uuid, String userId) throws Exception {
+        @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
+
+        dao.updateUUID(conn, uuid, userId);
     }
 
     public int signUp(MemberRegRequest regRequest, HttpServletRequest request) throws Exception {

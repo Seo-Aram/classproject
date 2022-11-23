@@ -47,7 +47,18 @@
       <li><a class="dropdown-item" href="#">Settings</a></li>
       <li><a class="dropdown-item" href="#">Profile</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
+      <li><a class="dropdown-item" href="/logout">Sign out</a></li>
     </ul>
   </div>
 </div>
+<script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* global bootstrap: false */
+  (() => {
+    'use strict'
+    const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    tooltipTriggerList.forEach(tooltipTriggerEl => {
+      new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  })()
+</script>
