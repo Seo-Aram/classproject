@@ -24,6 +24,11 @@ public class AutoLoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Cookie cookie = Util.findCookie(request.getCookies(), "loginInfo");
+        HttpSession session = request.getSession(false);
+
+        if(session == null || session.getAttribute("loginInfo") != null) {
+            return true;
+        }
 
         if(cookie != null && cookie.getValue() != null) {
             log.info(cookie.getValue());

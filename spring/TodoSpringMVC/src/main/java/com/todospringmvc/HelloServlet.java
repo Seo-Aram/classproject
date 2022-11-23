@@ -1,4 +1,4 @@
-package com.todo.todospringmvc;
+package com.todospringmvc;
 
 import java.io.*;
 import javax.servlet.http.*;
