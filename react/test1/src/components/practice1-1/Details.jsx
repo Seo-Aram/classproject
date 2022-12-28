@@ -1,9 +1,7 @@
 import React from "react";
-//import ItemsContext from "./Items";
 
 function Details(props) {
     const {idx, items} = props;
-    //const {items} = React.useContext(ItemsContext);
 
     return (
         <div>
