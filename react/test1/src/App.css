@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  display: flex;
+}
+
+.container > div {
+  min-width: 300px;
+  padding: 10px;
+  margin: 10px;
+}
+
+p, h3{
+  margin-top: 0px
+}

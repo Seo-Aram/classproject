@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Notification from './components/Notification';
+import Container from './components/practice/Container';
 
 /*function App() {
   return (
@@ -25,7 +26,8 @@ import Notification from './components/Notification';
 
 function App() {
   return(
-    <Notification message='안녕하세요'/>
+    //<Notification message='안녕하세요'/>
+    <Container/>
   );
 }
 

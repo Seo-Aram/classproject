@@ -10,8 +10,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 function tick() {
   root.render(
     <React.StrictMode>
-      <Team />
-      <ConfirmDialog/>
       <App/>
     </React.StrictMode>
   );
