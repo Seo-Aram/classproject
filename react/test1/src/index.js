@@ -12,6 +12,7 @@ function tick() {
     <React.StrictMode>
       <Team />
       <ConfirmDialog/>
+      <App/>
     </React.StrictMode>
   );
 }

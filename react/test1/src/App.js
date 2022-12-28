@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Notification from './components/Notification';
 
-function App() {
+/*function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +20,12 @@ function App() {
         </a>
       </header>
     </div>
+  );
+}*/
+
+function App() {
+  return(
+    <Notification message='안녕하세요'/>
   );
 }
 
