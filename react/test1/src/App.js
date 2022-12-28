@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Notification from './components/Notification';
-import Container from './components/practice1/Container';
+import Container from './components/practice2/Container';
 
 /*function App() {
   return (
