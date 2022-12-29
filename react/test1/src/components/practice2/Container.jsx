@@ -12,7 +12,7 @@ function Container(props) {
     
     const delWord = function(word) {
         //words.splice(index, 1);
-        setWords(words.filter(w => w !== word))
+        setWords([...words.filter(w => w !== word)])
     }
 
     return (
