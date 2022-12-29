@@ -1,9 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Notification from './components/Notification';
-import Container from './components/practice2/Container';
 
-/*function App() {
+function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -11,7 +9,7 @@ import Container from './components/practice2/Container';
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a  
+        <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
@@ -21,13 +19,6 @@ import Container from './components/practice2/Container';
         </a>
       </header>
     </div>
-  );
-}*/
-
-function App() {
-  return(
-    //<Notification message='안녕하세요'/>
-    <Container/>
   );
 }
 

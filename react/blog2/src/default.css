@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lobster&family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /*font-family: 'Noto Sans KR', sans-serif;*/
+    font-family: 'Nanum Myeongjo', serif;
+    width: 800px;
+    min-height: auto;
+    border: 3px solid #aaa;
+
+    margin: 10px auto;
+    border-radius: 5px;
+
+    box-shadow: 3px 3px #aaa;
+    padding: 15px;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+a:visited{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color:rgb(0, 213, 255);
+}
+
+/* header */
+header {
+    padding: 30px;
+}
+
+.title {
+    font-family: 'Lobster', cursive;
+}
+
+header>p{
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* nav */
+nav {
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    padding: 5px;
+    overflow: hidden;
+}
+
+nav>div>ul{
+    float: left;
+    width: 450px;
+    overflow: hidden;
+    list-style: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+nav>div>ul>li {
+    float: left;
+    padding-right: 15px;
+}
+
+.input-box{
+    float: right;
+    text-align: right;
+    width: 250px;
+}
+
+nav>div>input[type=text] {
+    height: 20px;
+    width: 150px;
+    border-radius: 10px 0 0 10px;
+    padding-left: 10px;
+}
+
+nav>div>input[type=button] {
+    height: 24px;
+    width: 70px;
+    margin-left: -6px;
+    border-radius: 0 10px 10px 0;
+
+    vertical-align: middle;
+}
+
+/* wrap */
+.wrap {
+    display: flex;
+    padding-top: 15px;
+}
+
+/* section */
+section {
+    width: 590px;
+    float: left;
+    margin-top: -15px;
+    padding: 0px 15px;
+}
+
+article {
+    margin-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #aaa;
+}
+article>h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 10px 0;
+}
+
+article>h2+p{
+    font-size: small;
+}
+
+.lh-180{
+    line-height: 180%;
+    white-space: pre-line;
+    text-align: justify;
+}
+
+.article-date{
+    font-size: small;
+    color: rgb(115, 115, 115);
+}
+
+.image-group {
+    text-align: center;
+    font-size: small;
+    color: rgb(115, 115, 115);
+    margin: 30px 0px;
+}
+
+.image-group>img {
+    max-width: 100%;
+}
+
+/* aside */
+aside {
+    width: 190px;
+    min-height: 200px;
+    float: right;
+    padding-left: 15px;
+}
+
+aside>div {
+    padding-bottom: 30px;
+    padding-left: 10px;
+    border-left: 1px solid rgb(200, 200, 200);
+}
+
+aside>div>ul {
+    list-style: none;
+    margin-left: 10px;
+}
+
+aside>div>ul>li {
+    margin-top: 10px;
+}
+
+/* footer */
+footer {
+    height: 40px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: small;
+    color: rgb(115, 115, 115);
+}
