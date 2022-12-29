@@ -8,7 +8,7 @@ function PrintWord(props) {
             <ul>
                 {
                     words.map((word, index) => {
-                        return <li key={index}> {word} <button onClick={(event) => delWord(index, event)}> X </button> </li>
+                        return <li key={index}> {word} <button onClick={(event) => delWord(word, event)}> X </button> </li>
                     })
                 }
             </ul>

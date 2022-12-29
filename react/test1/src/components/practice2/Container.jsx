@@ -3,14 +3,16 @@ import InputWord from "./InputWord";
 import PrintWord from "./PrintWord";
 
 function Container(props) {
-    const [words] = React.useState([]);
+    const [words, setWords] = React.useState([]);
 
     const addWord = function(word) {
-        words.push(word);
+        //words.push(word);
+        setWords([...words, word]);
     }
     
-    const delWord = function(index) {
-        words.splice(index, 1);
+    const delWord = function(word) {
+        //words.splice(index, 1);
+        setWords(words.filter(w => w !== word))
     }
 
     return (
